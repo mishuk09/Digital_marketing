@@ -1,10 +1,16 @@
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Button, Menu, MenuItem } from '@mui/material';
+import PopupState, { bindMenu, bindTrigger } from 'material-ui-popup-state';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ButtonFormet from '../ContactPage/ButtonFormet';
+
 
 const Navbar = () => {
     return (
-        <div>
-            <nav class="bg-gray-800">
+        <div class="bg-slate-900" >
+            <nav className='container'>
                 <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
                     <div class="relative flex h-16 items-center justify-between">
                         <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -23,19 +29,43 @@ const Navbar = () => {
                             </button>
                         </div>
                         <div class="flex flex-1 items-center   justify-center sm:items-stretch sm:justify-start">
-                            <div class="flex flex-shrink-0 items-center">
-                                <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company" />
-                            </div>
-
+                            <Link to='/'>
+                                <div class="flex flex-shrink-0 items-center">
+                                    <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company" />
+                                </div>
+                            </Link>
+        
                         </div>
                         <div class="hidden sm:ml-6 sm:block ">
                             <div className="flex space-x-4  ">
 
-                                <Link href="#" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Home</Link>
+                                <Link to='/' class=" hover:bg-gray-700 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Home</Link>
                                 <Link href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">About</Link>
-                                <Link href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Service</Link>
+
+                                <PopupState variant="popover" popupId="demo-popup-menu">
+                                    {(popupState) => (
+                                        <React.Fragment>
+
+                                            <Button variant="contained" {...bindTrigger(popupState)}>
+                                                Service <FontAwesomeIcon className='ms-2' icon={faAngleDown} />
+                                            </Button>
+                                            <Menu {...bindMenu(popupState)}>
+                                                <MenuItem onClick={popupState.close}>Website Development</MenuItem>
+                                                <MenuItem onClick={popupState.close}>SEO</MenuItem>
+                                                <MenuItem onClick={popupState.close}>Social Media Marketing</MenuItem>
+                                                <MenuItem onClick={popupState.close}>Graphic Design</MenuItem>
+                                            </Menu>
+                                        </React.Fragment>
+                                    )}
+                                </PopupState>
                                 <Link href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Blog</Link>
                                 <Link href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Contact</Link>
+
+
+                                <Link to='/contactpage'>
+                                    <ButtonFormet>Get A Free Consultation</ButtonFormet>
+
+                                </Link>
                             </div>
                         </div>
 
@@ -46,11 +76,15 @@ const Navbar = () => {
                 <div class="sm:hidden" id="mobile-menu">
                     <div class="space-y-1 px-2 pb-3 pt-2">
 
-                        <Link href="#" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Home</Link>
+                        <Link href="#" class=" text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Home</Link>
                         <Link href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">About</Link>
                         <Link href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Service</Link>
                         <Link href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Blog</Link>
                         <Link href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Contact</Link>
+                        <Link to='/contactpage'>
+                            <ButtonFormet>Get A Free Consultation</ButtonFormet>
+
+                        </Link>
                     </div>
                 </div>
             </nav>
