@@ -1,6 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import aboutimg from './img/aboutimg.png';
+import ButtonFormet from '../ContactPage/ButtonFormet';
+import Service from '../Service/Service';
+import Help from '../Help/Help';
+
 
 const About = () => {
     const clipPathStyle2 = {
@@ -11,34 +15,49 @@ const About = () => {
 
 
         <div className='mt-[400px]'>
-            <div style={clipPathStyle2} className='bg-slate-200   absolute w-full h-[600px] flex flex-col text-center'>
-                {/* <div className='container'>
+            <div style={clipPathStyle2} className='bg-slate-950   absolute w-full h-[900px] flex flex-col text-center'>
 
-                    <h1 className='text-slate-950 mt-10 max-auto text-5xl font-sans font-bold'>Expert Digital <span className='text-blue-500'>Marketing</span>   </h1>
-                    <div className='text-slate-100' >
-                       
-
-
-                    </div>
-                    <p className='text-slate-600 w-[50%] mx-auto mt-4  font-nunito '>Welcome to [Your Company Name], your gateway to digital success! Elevate your brand with our cutting-edge strategies, driving meaningful growth. </p>
-                    <Link to='/contactpage'> <button className='bg-blue-500 hover:bg-blue-600 font-nunito text-white w-[100px] h-[40px] rounded mx-auto mt-4'>Get Start</button>
-                    </Link>
-                </div> */}
             </div>
             <div className='container flex justify-center relative items-center    '>
-                <div className='bg-slate-950 w-full h-[500px]    flex   rounded'>
+                <div className='bg-white border w-full h-[500px]    flex   rounded'>
 
-                    <div className=' w-[50%]'>
-                        <img className=' h-full'  src={aboutimg} alt="" />
+                    <div className=' w-[50%] flex text-center items-center  '>
+                        <img className=' h-full' src={aboutimg} alt="" />
 
                     </div>
-                    <div className=' w-[50%]'>
+                    <div className=' w-[50%] flex flex-col justify-center pe-4'>
+                        <h1 className='text-5xl font-bold font-verdina '>About Us</h1>
+                        <p className='text-2xl mt-2 text-blue-500 font-nunito'>
+                            We build relationship and reach clients worldwide.
+
+                        </p>
+                        <p className='text-sm font-nunito text-justify  mt-3'>
+                            We are experienced and professional digital marketing agency that help business achieve massive success and build strong online presence with high quality personalized services to our clients.
+
+                            We work together to guarantee smooth elevation of brands and execute the development campaign for all business online.
+
+                            Each member of our team are equipped with professional skills to excel in their field. We provide personalized
+                        </p>
+                        <div className='mt-5'>
+                            <ButtonFormet >Take First Step</ButtonFormet>
+                        </div>
+
 
                     </div>
 
 
                 </div>
             </div>
+            <div className='relative text-center items-center justify-center flex flex-col'>
+                <h1 className='text-slate-200 text-5xl font-bold  font-verdina text-center pt-20'>Our <span className='text-blue-500'>Services</span></h1>
+                <p className='text-slate-300 text-xl w-[50%]   font-nunito  mt-2'>With us we build relationship and get data driven result. Do your best while our agency guarantees your business strong online presence!
+                </p>
+                <Service />
+
+                <Help />
+            </div>
+
+
         </div>
 
     );

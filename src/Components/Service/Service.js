@@ -1,0 +1,61 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import seo from './img/seo.png';
+import web from './img/web.png';
+import graphic from './img/graphic.png';
+import social from './img/social.png';
+
+const Service = () => {
+    const items = [
+        {
+            id: 1,
+            img: web,
+            title: 'Web Development',
+            link: '/web',
+            details: "Crafting bespoke digital experiences through innovative coding and design.",
+        },
+        {
+            id: 2,
+            img: seo,
+            title: 'SEO Optimization',
+            link: '/web',
+            details: "Elevating online visibility and organic traffic through strategic optimization techniques",
+        },
+        {
+            id: 3,
+            img: social,
+            title: 'Social Media Marketing',
+            link: '/web',
+            details: "Amplifying brand presence and engagement with tailored social strategies and compelling content",
+        },
+        {
+            id: 4,
+            img: graphic,
+            title: 'Graphic Design',
+            link: '/web',
+            details: "Transforming concepts into captivating visual narratives through creative design solutions",
+        },
+    ]
+    return (
+        <div className='container   flex items-center justify-center gap-3 mt-[80px]'>
+            {
+                // eslint-disable-next-line array-callback-return
+                items.map((item) => (
+                    <Link
+                        key={item.id}
+                        className='w-[300px] rounded shadow h-[300px]  bg-white hover:-translate-y-2 duration-300 hover:bg-blue-500'
+                    >
+                        <div className='flex flex-col pt-3 items-center  '>
+                            <img className='w-[150px]' src={item.img} alt="" />
+                            <p className='font-nunito text-xl mt-2 font-bold'> {item.title}</p>
+                            <p className='text-justify text-slate-600 font-nunito p-3'>{item.details}</p>
+                        </div>
+
+                    </Link>
+                ))
+            }
+        </div>
+    );
+};
+
+export default Service;
