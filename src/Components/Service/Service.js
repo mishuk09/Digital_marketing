@@ -4,6 +4,7 @@ import seo from './img/seo.png';
 import web from './img/web.png';
 import graphic from './img/graphic.png';
 import social from './img/social.png';
+import ButtonChild from '../ButtonChild';
 
 const Service = () => {
     const items = [
@@ -13,6 +14,7 @@ const Service = () => {
             title: 'Web Development',
             link: '/web',
             details: "Crafting bespoke digital experiences through innovative coding and design.",
+            button: <ButtonChild >View More</ButtonChild>,
         },
         {
             id: 2,
@@ -20,6 +22,7 @@ const Service = () => {
             title: 'SEO Optimization',
             link: '/web',
             details: "Elevating online visibility and organic traffic through strategic optimization techniques",
+            button: <ButtonChild >View More</ButtonChild>,
         },
         {
             id: 3,
@@ -27,6 +30,7 @@ const Service = () => {
             title: 'Social Media Marketing',
             link: '/web',
             details: "Amplifying brand presence and engagement with tailored social strategies and compelling content",
+            button: <ButtonChild >View More</ButtonChild>,
         },
         {
             id: 4,
@@ -34,6 +38,7 @@ const Service = () => {
             title: 'Graphic Design',
             link: '/web',
             details: "Transforming concepts into captivating visual narratives through creative design solutions",
+            button: <ButtonChild >View More</ButtonChild>,
         },
     ]
     return (
@@ -42,13 +47,15 @@ const Service = () => {
                 // eslint-disable-next-line array-callback-return
                 items.map((item) => (
                     <Link
+                        to={item.link}
                         key={item.id}
-                        className='w-[300px] rounded shadow h-[300px]  bg-white hover:-translate-y-2 duration-300 hover:bg-blue-500'
+                        className='w-[300px] rounded shadow h-[350px]  bg-white hover:-translate-y-2 duration-300 hover:bg-blue-500'
                     >
                         <div className='flex flex-col pt-3 items-center  '>
                             <img className='w-[150px]' src={item.img} alt="" />
                             <p className='font-nunito text-xl mt-2 font-bold'> {item.title}</p>
                             <p className='text-justify text-slate-600 font-nunito p-3'>{item.details}</p>
+                            {item.button}
                         </div>
 
                     </Link>

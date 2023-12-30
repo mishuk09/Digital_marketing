@@ -4,6 +4,9 @@ import './App.css';
 import Navbar from './Components/Navbar/Navbar';
 import ContactForm from './Components/ContactPage/ContactForm';
 import ChildDiv from './ChildDiv';
+import ContactPage from './Components/ContactPage/ContactPage';
+import Web from './Components/Service/Allservices/Web';
+import Footer from './Components/Footer/Footer';
 
 function App() {
   return (
@@ -13,8 +16,13 @@ function App() {
 
       <Routes>
         <Route path='/' element={<ChildDiv />}></Route>
-        <Route path='/contactpage' element={<ContactForm />}></Route>
+
+
+        {/* Services ROUTES */}
+        <Route path='/web' element={<Web />}></Route>
+        <Route path='/contactpage' element={<ContactPage />}></Route>
       </Routes>
+      <Footer />
     </div>
   );
 }

@@ -5,11 +5,13 @@ import PopupState, { bindMenu, bindTrigger } from 'material-ui-popup-state';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ButtonFormet from '../ContactPage/ButtonFormet';
+import mainlogo from './img/mainlogo.png';
+import './Navbar.css'
 
 
 const Navbar = () => {
     return (
-        <div class="bg-slate-900" >
+        <div className=" bg-black  hgfdhgf" >
             <nav className='container'>
                 <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
                     <div class="relative flex h-16 items-center justify-between">
@@ -31,10 +33,9 @@ const Navbar = () => {
                         <div class="flex flex-1 items-center   justify-center sm:items-stretch sm:justify-start">
                             <Link to='/'>
                                 <div class="flex flex-shrink-0 items-center">
-                                    <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company" />
-                                </div>
+                                    <img className='w-[200px] p-3' src={mainlogo} alt="" />                                </div>
                             </Link>
-        
+
                         </div>
                         <div class="hidden sm:ml-6 sm:block ">
                             <div className="flex space-x-4  ">

@@ -1,52 +1,21 @@
+import React from 'react';
+import help from './img/help.png';
+import ButtonFormet from '../ContactPage/ButtonFormet';
 
-
-import React, { useCallback } from 'react';
-import ReactFlow, {
-    MiniMap,
-    Controls,
-    Background,
-    useNodesState,
-    useEdgesState,
-    addEdge,
-} from 'reactflow';
-
-import 'reactflow/dist/style.css';
-
-const initialNodes = [
-    { id: '1', position: { x: 0, y: 0 }, data: { label: '1' } },
-    { id: '2', position: { x: 0, y: 100 }, data: { label: '2' } },
-];
-
-const initialEdges = [{ id: 'e1-2', source: '1', target: '2' }];
-
-function Help() {
-    const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
-    const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-
-    const onConnect = useCallback(
-        (params) => setEdges((eds) => addEdge(params, eds)),
-        [setEdges]
-    );
-
+const Help = () => {
     return (
-        <div>
+        <div className='container mt-40'>
             <h1 className='text-5xl font-bold'>How Can We <span className='text-blue-500'>Help You?</span></h1>
             <p className='mt-2'>Let's Do Work Together Take Your First Step</p>
-            <ReactFlow
-                nodes={nodes}
-                edges={edges}
-                onNodesChange={onNodesChange}
-                onEdgesChange={onEdgesChange}
-                onConnect={onConnect}
-            >
-                <MiniMap />
-                <Controls />
-                <Background />
-            </ReactFlow>
-        </div>
+           <div>
+            </div> <img src={help} alt="" />
+            <div className='mt-4 flex text-center items-center justify-center gap-4'>
+                <ButtonFormet>Get A Free Consultation</ButtonFormet>
+                <ButtonFormet>Get Demo</ButtonFormet>
+            </div>
 
+        </div>
     );
-}
+};
 
 export default Help;
-

@@ -4,25 +4,28 @@ import aboutimg from './img/aboutimg.png';
 import ButtonFormet from '../ContactPage/ButtonFormet';
 import Service from '../Service/Service';
 import Help from '../Help/Help';
+import aboutus from './img/aboutus.png';
+import Article from '../Article/Article';
 
 
 const About = () => {
     const clipPathStyle2 = {
-        clipPath: 'polygon(100% 50%, 100% 100%, 0 100%, 0 50%, 50% 0)',
+        // clipPath: 'polygon(100% 50%, 100% 100%, 0 100%, 0 50%, 50% 0)',
+        // clipPath: 'polygon(0 33%, 50% 0, 100% 33%, 100% 66%, 50% 100%, 0 67%)',
 
     };
     return (
 
 
         <div className='mt-[400px]'>
-            <div style={clipPathStyle2} className='bg-slate-950   absolute w-full h-[900px] flex flex-col text-center'>
+            <div style={clipPathStyle2} className='bg-slate-950  mt-[250px] absolute w-full h-[700px] flex flex-col text-center'>
 
             </div>
             <div className='container flex justify-center relative items-center    '>
                 <div className='bg-white border w-full h-[500px]    flex   rounded'>
 
                     <div className=' w-[50%] flex text-center items-center  '>
-                        <img className=' h-full' src={aboutimg} alt="" />
+                        <img className=' h-full' src={aboutus} alt="" />
 
                     </div>
                     <div className=' w-[50%] flex flex-col justify-center pe-4'>
@@ -53,8 +56,8 @@ const About = () => {
                 <p className='text-slate-300 text-xl w-[50%]   font-nunito  mt-2'>With us we build relationship and get data driven result. Do your best while our agency guarantees your business strong online presence!
                 </p>
                 <Service />
-
                 <Help />
+                {/* <Article /> */}
             </div>
 
 
