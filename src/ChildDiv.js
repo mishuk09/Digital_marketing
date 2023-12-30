@@ -5,14 +5,13 @@ import Service from './Components/Service/Service';
 import Article from './Components/Article/Article';
 import ContactPage from './Components/ContactPage/ContactPage';
 import Headline from './Components/Headline';
-import Footer from './Components/Footer/Footer';
-import Top from './Components/Top';
+
 
 const ChildDiv = () => {
     return (
         <div>
             <Home />
-            <Top />
+
             <About />
             {/* <Service /> */}
             <Article />
@@ -21,7 +20,7 @@ const ChildDiv = () => {
             </div>
 
             <ContactPage />
-            <Footer />
+
         </div>
     );
 };
