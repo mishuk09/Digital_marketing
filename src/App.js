@@ -7,6 +7,7 @@ import ContactPage from './Components/ContactPage/ContactPage';
 import Web from './Components/Service/Allservices/Web';
 import Footer from './Components/Footer/Footer';
 import Top from './Components/Top';
+import Seo from './Components/Service/Allservices/Seo';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
 
         {/* Services ROUTES */}
         <Route path='/web' element={<Web />}></Route>
+        <Route path='/seo' element={<Seo />}></Route>
         <Route path='/contactpage' element={<ContactPage />}></Route>
       </Routes>
       <Footer />

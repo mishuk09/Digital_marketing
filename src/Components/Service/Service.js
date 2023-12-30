@@ -20,7 +20,7 @@ const Service = () => {
             id: 2,
             img: seo,
             title: 'SEO Optimization',
-            link: '/web',
+            link: '/seo',
             details: "Elevating online visibility and organic traffic through strategic optimization techniques",
             button: <ButtonChild >View More</ButtonChild>,
         },

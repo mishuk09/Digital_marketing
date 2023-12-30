@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import HomePage from '../../HomePage';
-import web from './img/web.png';
+import bestseo from './img/bestseo.png';
+import seo from './img/seo.png';
 import ButtonFormet from '../../ContactPage/ButtonFormet';
 import Headline from '../../Headline';
-import frontend from './img/frontend.png';
-import backend from './img/backend.png';
-import custom from './img/custom.png';
-import ecomerse from './img/ecomerse.png';
-import best from './img/best.png';
+import keyword from './img/keyword.png';
+import onpage from './img/onpage.png';
+import offpage from './img/offpage.png';
+import link from './img/link.png';
+import analytics from './img/analytics.png';
 import javascript from './img/javascript.png';
 import react from './img/react.png';
 import express from './img/express.png';
@@ -21,37 +22,68 @@ import { Link } from 'react-router-dom';
 import Article from '../../Article/Article';
 
 
-const Web = () => {
+const Seo = () => {
+    const interviewRef = useRef(null);
+
+
+    const scroll = (scrollOffset) => {
+        if (interviewRef.current) {
+            const container = interviewRef.current;
+            const start = container.scrollLeft;
+
+            const startTime = performance.now();
+            const duration = 500; // Adjust the duration as needed
+
+            const animateScroll = (currentTime) => {
+                const elapsedTime = currentTime - startTime;
+                const scroll = easeInOutQuad(elapsedTime, start, scrollOffset, duration);
+                container.scrollLeft = scroll;
+
+                if (elapsedTime < duration) {
+                    requestAnimationFrame(animateScroll);
+                }
+            };
+
+            requestAnimationFrame(animateScroll);
+        }
+    };
+    // Easing function for smooth scroll animation
+    const easeInOutQuad = (t, b, c, d) => {
+        t /= d / 2;
+        if (t < 1) return (c / 2) * t * t + b;
+        t--;
+        return (-c / 2) * (t * (t - 2) - 1) + b;
+    };
     const webItems = [
         {
             id: 1,
-            img: custom,
-            title: "Custom Website Development",
-            details: "Tailoring software solutions to meet specific and unique requirements, often involving the creation of bespoke applications or features designed to address the distinct needs of a particular business or user",
+            img: keyword,
+            title: "Keyword Research",
+            details: " Identifying and selecting specific words or phrases that users are likely to search for, crucial for optimizing content to match those queries.",
         },
         {
             id: 2,
-            img: frontend,
-            title: " Front-End Development",
-            details: "Creating and designing the user interface and user experience of a website or application, focusing on the visual presentation and interactivity that users directly interact with",
+            img: onpage,
+            title: " On-Page",
+            details: " Optimizing individual web pages to rank higher and earn more relevant traffic in search engines by utilizing keyword-rich content, meta tags, and HTML source code.",
         },
         {
             id: 3,
-            img: backend,
-            title: "Back-End",
-            details: "Building the server-side of a website or application, including databases, server logic, and other components that operate behind the scenes to process and manage data, ensuring the functionality of the software",
+            img: offpage,
+            title: "Off-Page",
+            details: "Activities performed outside the website to enhance its search engine rankings, typically through link building, social media marketing, and influencer outreach",
         },
         {
             id: 4,
-            img: ecomerse,
-            title: "E-commerce Web Development",
-            details: "Developing online shopping platforms or digital storefronts, including features such as product listings, shopping carts, payment gateways, and order processing to enable businesses to sell products or services online",
+            img: link,
+            title: "Link Building",
+            details: "Acquiring hyperlinks from other websites to your own, signaling search engines about the credibility and authority of your content, improving search rankings.",
         },
         {
             id: 5,
-            img: wordpress,
-            title: "Wordpress  Development",
-            details: "Creating and designing the user interface and user experience of a website or application, focusing on the visual presentation and interactivity that users directly interact with",
+            img: analytics,
+            title: "Analytics",
+            details: "Utilizing tools like Google Analytics to gather, analyze, and interpret website data, offering insights into user behavior, traffic sources, and overall performance for informed decision-making.",
         },
 
     ];
@@ -116,37 +148,57 @@ const Web = () => {
     return (
         <div className=' bg-slate-100'>
             <div className='container'>
-                <HomePage showHeadButton={true} showInterviewDiv={false} showImgDiv={true} headline='Web Development'
-                    description='We specialize in creating fantastic websites that not only look great but also function smoothly.' image={web}>
+                <HomePage showHeadButton={true} showInterviewDiv={false} showImgDiv={true} headline='Search Engine Optimization'
+                    description='Elevating online visibility and organic traffic through strategic optimization techniques' image={seo}>
                 </HomePage>
 
                 <Headline short='Service' parent="Our " child="Services"></Headline>
-                <div className='flex bg-white p-5 gap-3 mt-4'>
-                    {
-                        webItems.map((item) => (
-                            <div className='w-[25%] rounded h-[350px] bg-slate-100 shadow hover:-translate-y-2 duration-300'>
+                
 
-                                <div className='flex flex-col  items-center text-center justify-center'>
-                                    <img className='mt-3 w-[150px]' src={item.img} alt="" />
-                                    <p className='font-verdina pt-2  font-bold text-[18px]'>{item.title}</p>
-                                    <p className='text-sm text-justify px-3 pt-2'>{item.details}</p>
+                <div className='px-5 my-10 p-5  bg-white relative  '>
+                    <div className=' grid grid-flow-col auto-cols-max gap-3 mt-4 overflow-hidden  ' ref={interviewRef}>
+                        {webItems.map((unit) => (
+
+                            <Link
+                                key={unit.id}
+                                to={unit.link}
+                                className=' w-[320px] h-[350px] bg-slate-100   p-3 shadow-sm rounded transition ease-in-out delay-50    hover:scale-40 duration-400 hover:shadow'
+                            >
+                                <div className='  rounded    flex flex-col items-center justify-center'>
+                                    <div>
+                                        <img className='w-[150px] rounded ' src={unit.img} alt='' />
+                                    </div>
+                                    <div className='text-slate-900 mt-3  font-nunito text-sm flex flex-col items-center  '>
+                                        <p className='text-2xl font-bold'>{unit.title}</p>
+                                        <p className='flex mt-2 flex-col items-center text-justify'>{unit.details}</p>
+                                    </div>
                                 </div>
-                            </div>
-                        ))
-                    }
+                            </Link>
+                        ))}
+                    </div>
 
-
-
+                    <button
+                        className='absolute top-1/2 left-2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full'
+                        onClick={() => scroll(-500)}
+                    >
+                        {'<'}
+                    </button>
+                    <button
+                        className='absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full'
+                        onClick={() => scroll(500)}
+                    >
+                        {'>'}
+                    </button>
                 </div>
 
                 <div className='flex  w-full h-[300px] rounded  bg-sky-200 mt-[100px]'>
 
                     <div className='flex ms-4 flex-col w-[50%]  justify-center'>
                         <h1 className='font-bold text-3xl font-nunito'>
-                            Exploring Top-notch Website Development Companies?
+                            Exploring Top-tier SEO Agencies?
                         </h1>
                         <p className='mt-2  text-justify  font-nunito'>
-                            Combining experience and innovation, we provide scalable solutions that leverage trending technologies.
+                            We merge seasoned expertise with innovative strategies, offering scalable solutions that harness trending techniques to elevate online visibility and drive organic traffic
                         </p>
                         <p className='mt-6'>
                             <Link to='/contactpage'> <ButtonFormet>Get Free Consultation</ButtonFormet>
@@ -155,7 +207,7 @@ const Web = () => {
                         </p>
                     </div>
                     <div className='w-[50%] flex items-center text-center justify-center'>
-                        <img className=' p-2 h-full' src={best} alt="" />
+                        <img className=' p-2 h-full' src={bestseo} alt="" />
                     </div>
 
                 </div>
@@ -187,4 +239,4 @@ const Web = () => {
     );
 };
 
-export default Web;
+export default Seo;

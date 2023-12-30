@@ -33,7 +33,8 @@ const Navbar = () => {
                         <div class="flex flex-1 items-center   justify-center sm:items-stretch sm:justify-start">
                             <Link to='/'>
                                 <div class="flex flex-shrink-0 items-center">
-                                    <img className='w-[200px] p-3' src={mainlogo} alt="" />                                </div>
+                                    <img className='w-[200px] p-3' src={mainlogo} alt="" />
+                                </div>
                             </Link>
 
                         </div>
@@ -51,10 +52,10 @@ const Navbar = () => {
                                                 Service <FontAwesomeIcon className='ms-2' icon={faAngleDown} />
                                             </Button>
                                             <Menu {...bindMenu(popupState)}>
-                                                <MenuItem onClick={popupState.close}>Website Development</MenuItem>
-                                                <MenuItem onClick={popupState.close}>SEO</MenuItem>
-                                                <MenuItem onClick={popupState.close}>Social Media Marketing</MenuItem>
-                                                <MenuItem onClick={popupState.close}>Graphic Design</MenuItem>
+                                                <Link to='/web'>  <MenuItem onClick={popupState.close}>Website Development</MenuItem></Link>
+                                                <Link to='/seo'><MenuItem onClick={popupState.close}>SEO</MenuItem></Link>
+                                                <Link to='/social'> <MenuItem onClick={popupState.close}>Social Media Marketing</MenuItem></Link>
+                                                <Link to='/graphic'> <MenuItem onClick={popupState.close}>Graphic Design</MenuItem></Link>
                                             </Menu>
                                         </React.Fragment>
                                     )}

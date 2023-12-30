@@ -2,6 +2,7 @@ import { faBookOpen, faBrain, faCheck, faCode, faFilePdf, faNewspaper, faPenNib,
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import ButtonFormet from './ContactPage/ButtonFormet';
+import { Link } from 'react-router-dom';
 
 const HomePage = ({ headline, description, image, shortimg, img1, img2, showImgDiv, showHeadButton, showInterviewDiv }) => {
     return (
@@ -65,7 +66,7 @@ const HomePage = ({ headline, description, image, shortimg, img1, img2, showImgD
                     <div className='flex w-full gap-3 container mt-4'>
                         {/* <div><img className='w-[250px] hover:scale-110 delay-50 duration-300 rounded border' src={img1} alt="" /></div>
                         <div><img className='w-[250px] hover:scale-110 delay-50 duration-300 rounded border' src={img2} alt="" /></div> */}
-                         <ButtonFormet>Get your First Website</ButtonFormet>
+                        <Link to='/contactpage'> <ButtonFormet>Get your First Service</ButtonFormet></Link>
                     </div>}
 
             </div>
