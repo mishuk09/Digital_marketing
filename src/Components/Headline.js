@@ -5,7 +5,7 @@ const Headline = (props) => {
     return (
         < >
             <p className='font-nutino text-md text-blue-500'>{short}</p>
-            <div className='flex flex-col   relative   pe-2   '> <h1 className=' font-verdina   font-bold text-4xl  '>{parent} <span className='text-blue-500  '>{child} </span>  </h1>
+            <div className='flex flex-col   relative   pe-2   '> <h1 className=' font-verdina   font-bold text-5xl  '>{parent} <span className='text-blue-500  '>{child} </span>  </h1>
                 {isPshow && <p className='mt-2 font-nunito'> {detials}</p>}   </div>
 
 
