@@ -12,15 +12,13 @@ const ContactForm = () => {
         phoneNumber: '',
         subject: '',
         message: '',
-        recaptchaValue: '', // Captcha value will be stored here
-    });
 
+    });
     const [formErrors, setFormErrors] = useState({
         name: false,
         email: false,
         phoneNumber: false,
     });
-
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData({
@@ -28,9 +26,6 @@ const ContactForm = () => {
             [name]: value,
         });
     };
-
-
-
     const form = useRef();
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -118,8 +113,6 @@ const ContactForm = () => {
                     onChange={handleInputChange}
                     required
                 ></textarea>
-
-
                 <button type="submit">Send</button>
             </form>
         </div>

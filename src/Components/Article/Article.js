@@ -1,23 +1,17 @@
-// import React from 'react';
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
 import * as React from 'react';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
-
-
-// import TabContext from '@mui/lab/TabContext';
-// import TabList from '@mui/lab/TabList';
-// import TabPanel from '@mui/lab/TabPanel';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import Headline from '../Headline';
 
 const Article = () => {
     const [value, setValue] = React.useState('1');
-
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
+
     return (
         <div id='article' className='bg-slate-100 pb-10'>
             <div className='container mt-16 pt-5'>
@@ -51,10 +45,8 @@ const Article = () => {
                                     <div className='px-3 py-2 mx-3 mt-1 flex flex-col justify-end rounded-sm border border-slate-400 w-[97%] xs:w-[90%] sm:w-[97%] h-20 '  >
                                         <div className='rounded-sm align-bottom text-sm   border border-slate-400 w-[100%] h-4'> </div>
                                     </div>
-
                                 </div>
                                 <Stack className='felx items-center justify-center mt-4' spacing={2}>
-
                                     <Pagination count={10} variant="outlined" shape="rounded" />
                                 </Stack>
                             </TabPanel>
@@ -71,10 +63,8 @@ const Article = () => {
                                 <div className='px-3 py-2 mx-3 mt-1 flex flex-col justify-end rounded-sm border border-slate-400 w-[97%] h-20 '  >
                                     <div className='rounded-sm   align-bottom text-sm   border border-slate-400 w-[100%] h-4'> </div>
                                 </div>
-
                             </div>
                                 <Stack className='felx items-center justify-center mt-4' spacing={2}>
-
                                     <Pagination count={10} variant="outlined" shape="rounded" />
                                 </Stack> </TabPanel>
                             <TabPanel className=' mt-2' value="3"> <div className='m-3 rounded pb-3     border w-full h-full border-slate-400'>
@@ -90,10 +80,8 @@ const Article = () => {
                                 <div className='px-3 py-2 mx-3 mt-1 flex flex-col justify-end rounded-sm border border-slate-400 w-[97%] h-20 '  >
                                     <div className='rounded-sm   align-bottom text-sm   border border-slate-400 w-[100%] h-4'> </div>
                                 </div>
-
                             </div>
                                 <Stack className='felx items-center justify-center mt-4' spacing={2}>
-
                                     <Pagination count={10} variant="outlined" shape="rounded" />
                                 </Stack></TabPanel>
                             <TabPanel className=' mt-2' value="4"> <div className='m-3 rounded pb-3     border w-full h-full border-slate-400'>
@@ -109,10 +97,8 @@ const Article = () => {
                                 <div className='px-3 py-2 mx-3 mt-1 flex flex-col justify-end rounded-sm border border-slate-400 w-[97%] h-20 '  >
                                     <div className='rounded-sm   align-bottom text-sm   border border-slate-400 w-[100%] h-4'> </div>
                                 </div>
-
                             </div>
                                 <Stack className='felx items-center justify-center mt-4' spacing={2}>
-
                                     <Pagination count={10} variant="outlined" shape="rounded" />
                                 </Stack>
                             </TabPanel>

@@ -1,7 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import Navbar from './Components/Navbar/Navbar';
-import ContactForm from './Components/ContactPage/ContactForm';
 import ChildDiv from './ChildDiv';
 import ContactPage from './Components/ContactPage/ContactPage';
 import Web from './Components/Service/Allservices/Web';
@@ -10,17 +8,19 @@ import Top from './Components/Top';
 import Seo from './Components/Service/Allservices/Seo';
 import Blog from './Components/Blog/Blog';
 import Graphic from './Components/Service/Allservices/Graphic';
+import Nav from './Components/Navbar/Nav';
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
+
+     
+      <Nav />
       <Top />
 
-
       <Routes>
-        <Route path='/' element={<ChildDiv />}></Route>
 
+        <Route path='/' element={<ChildDiv />}></Route>
 
         {/* Services ROUTES */}
         <Route path='/web' element={<Web />}></Route>

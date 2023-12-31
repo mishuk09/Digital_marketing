@@ -1,4 +1,4 @@
-import { faBookOpen, faBrain, faCheck, faCode, faFilePdf, faNewspaper, faPenNib, faPeopleArrows, faPersonDigging } from '@fortawesome/free-solid-svg-icons';
+import { faBookOpen, faBrain, faCheck, faCode,  faPenNib, faPeopleArrows, faPersonDigging } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import ButtonFormet from './ContactPage/ButtonFormet';
@@ -12,11 +12,11 @@ const HomePage = ({ headline, description, image, shortimg, img1, img2, showImgD
 
                 <h1 className='text-5xl font-bold ms-2 font-source-sans-3'>{headline}</h1>
                 {showHeadButton &&
-                    <div className='flex container lg:text-center  mt-5 font-nutino text-slate-600'>
-                        <div className='me-3 hover:-translate-y-1 hover:scale-110 transition duration-100 hover:bg-blue-600 rounded bg-blue-500 px-2 py-1 text-gray-200'><FontAwesomeIcon className='pe-1' icon={faBookOpen} />Requirements</div>
-                        <div className='me-3 hover:-translate-y-1 hover:scale-110 transition duration-100 hover:bg-blue-600 rounded bg-blue-500 px-2 py-1 text-gray-200'><FontAwesomeIcon className='pe-1' icon={faPenNib} />Design</div>
-                        <div className='me-3 hover:-translate-y-1 hover:scale-110 transition duration-100 hover:bg-blue-600 rounded bg-blue-500 px-2 py-1 text-gray-200'><FontAwesomeIcon className='pe-1' icon={faPersonDigging} />Implemantation</div>
-                        <div className='me-3 hover:-translate-y-1 hover:scale-110 transition duration-100 hover:bg-blue-600 rounded bg-blue-500 px-2 py-1 text-gray-200   '><FontAwesomeIcon className='pe-2  ' icon={faCheck} />Verification</div>
+                    <div className='flex container xs:flex-col sm:flex-row xs:text-center  lg:text-center  mt-5 font-nutino text-slate-600'>
+                        <div className='me-3 hover:-translate-y-1 xs:mt-1 hover:scale-110 transition duration-100 hover:bg-blue-600 rounded bg-blue-500 px-2 py-1 text-gray-200'><FontAwesomeIcon className='pe-1' icon={faBookOpen} />Requirements</div>
+                        <div className='me-3 hover:-translate-y-1 xs:mt-1 hover:scale-110 transition duration-100 hover:bg-blue-600 rounded bg-blue-500 px-2 py-1 text-gray-200'><FontAwesomeIcon className='pe-1' icon={faPenNib} />Design</div>
+                        <div className='me-3 hover:-translate-y-1 xs:mt-1 hover:scale-110 transition duration-100 hover:bg-blue-600 rounded bg-blue-500 px-2 py-1 text-gray-200'><FontAwesomeIcon className='pe-1' icon={faPersonDigging} />Implemantation</div>
+                        <div className='me-3 hover:-translate-y-1 xs:mt-1 hover:scale-110 transition duration-100 hover:bg-blue-600 rounded bg-blue-500 px-2 py-1 text-gray-200   '><FontAwesomeIcon className='pe-2  ' icon={faCheck} />Verification</div>
 
                     </div>}
 

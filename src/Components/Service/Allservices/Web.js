@@ -31,7 +31,7 @@ const Web = () => {
             const start = container.scrollLeft;
 
             const startTime = performance.now();
-            const duration = 500; // Adjust the duration as needed
+            const duration = 300; // Adjust the duration as needed
 
             const animateScroll = (currentTime) => {
                 const elapsedTime = currentTime - startTime;
@@ -46,7 +46,7 @@ const Web = () => {
             requestAnimationFrame(animateScroll);
         }
     };
-    // Easing function for smooth scroll animation
+  
     const easeInOutQuad = (t, b, c, d) => {
         t /= d / 2;
         if (t < 1) return (c / 2) * t * t + b;
@@ -146,24 +146,23 @@ const Web = () => {
 
     ]
     return (
-        <div className=' bg-slate-100'>
+        <div className=' bg-slate-100' >
             <div className='container'>
+               
                 <HomePage showHeadButton={true} showInterviewDiv={false} showImgDiv={true} headline='Web Development'
                     description='We specialize in creating fantastic websites that not only look great but also function smoothly.' image={web}>
                 </HomePage>
-                <div className='xs:mt-[390px] md:mt-[300px] lg:mt-[50px]'>
+                <div className='xs:mt-[480px] md:mt-[300px] lg:mt-[50px]'>
                     <Headline short='Service' parent="Our " child="Services"></Headline>
                 </div>
 
-
                 <div className='px-5 my-10 p-5   bg-white relative  '>
-                    <div className=' grid grid-flow-col auto-cols-max gap-3 mt-4 overflow-hidden  ' ref={interviewRef}>
+                    <div className=' grid grid-flow-col auto-cols-max gap-3 mt-4 overflow-hidden overflow-x-auto ' ref={interviewRef}>
                         {webItems.map((unit) => (
-
                             <Link
                                 key={unit.id}
                                 to={unit.link}
-                                className=' w-[320px] h-[350px] bg-slate-100   p-3 shadow-sm rounded transition ease-in-out delay-50    hover:scale-40 duration-400 hover:shadow'
+                                className=' w-[320px] xs:w-[220px] xs:h-[430px] sm:h-[350px]  sm:w-[320px] h-[350px] bg-slate-100   p-3 shadow-sm rounded transition ease-in-out delay-50    hover:scale-40 duration-400 hover:shadow'
                             >
                                 <div className='  rounded    flex flex-col items-center justify-center'>
                                     <div>
@@ -192,9 +191,9 @@ const Web = () => {
                     </button>
                 </div>
 
-                <div className='flex  w-full h-[300px] rounded  bg-sky-200 mt-[100px]'>
+                <div className='flex xs:flex-col xs:h-full   sm:flex-col md:flex-row  sm:h-full md:h-[300px] w-full h-[300px] rounded  bg-sky-200 mt-[100px]'>
 
-                    <div className='flex ms-4 flex-col w-[50%]  justify-center'>
+                    <div className='flex ms-4 flex-col xs:pt-5  xs:w-[90%] sm:pt-5 md:pt-0 w-[50%] sm:w-[90%] md:w-[50%]  justify-center'>
                         <h1 className='font-bold text-3xl font-nunito'>
                             Exploring Top-notch Website Development Companies?
                         </h1>
@@ -204,17 +203,15 @@ const Web = () => {
                         <p className='mt-6'>
                             <Link to='/contactpage'> <ButtonFormet>Get Free Consultation</ButtonFormet>
                             </Link>
-
                         </p>
                     </div>
-                    <div className='w-[50%] flex items-center text-center justify-center'>
-                        <img className=' p-2 h-full' src={best} alt="" />
+                    <div className='w-[50%] sm:w-[100%]  xs:w-[100%] xs:mt-3 sm:mt-0 md:w-[50%] flex items-center text-center justify-center'>
+                        <img className=' p-2 xs:w-[300px] sm:w-[300px] h-full' src={best} alt="" />
                     </div>
-
                 </div>
                 <div className='mt-[100px]'>
                     <Headline parent="Technology On We " child="Working" short='Technology'></Headline>
-                    <div className=" flex bg-white p-5 flex-wrap gap-3 mt-4">
+                    <div className=" flex bg-white xs:flex-col-2 p-5 flex-wrap gap-3 mt-4">
                         {
                             techItem.map((tutorial) => (
                                 // eslint-disable-next-line jsx-a11y/anchor-is-valid
@@ -222,7 +219,7 @@ const Web = () => {
                                     href="#"
                                     className='shadow-sm rounded  transition ease-in-out delay-50  hover:-translate-y-2 hover:scale-40  duration-400 '
                                 >
-                                    <div className='w-[130px] h-36 rounded bg-slate-200 hover:bg-slate-200 flex flex-col items-center justify-center'>
+                                    <div className='w-[130px] xs:w-[100px] sm:w-[130px] xs:h-28 sm:h-36 h-36 rounded bg-slate-200 hover:bg-slate-200 flex flex-col items-center justify-center'>
                                         <div>
                                             <img className='w-[70px] h-[70px]' src={tutorial.img} alt="" />
                                         </div>

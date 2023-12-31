@@ -10,48 +10,48 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
 
- 
 
 
-    const clipPathStyle = {
-        clipPath: 'polygon(0 0, 100% 0%, 100% 40%, 50% 74%, 0 40%)',
 
+const clipPathStyle = {
+    clipPath: 'polygon(0 0, 100% 0%, 100% 40%, 50% 74%, 0 40%)',
+
+};
+
+
+function TabPanel(props) {
+    const { children, value, index, ...other } = props;
+
+    return (
+        <div
+            role="tabpanel"
+            hidden={value !== index}
+            id={`full-width-tabpanel-${index}`}
+            aria-labelledby={`full-width-tab-${index}`}
+            {...other}
+        >
+            {value === index && (
+                <Box sx={{ p: 3 }}>
+                    <Typography>{children}</Typography>
+                </Box>
+            )}
+        </div>
+    );
+}
+
+TabPanel.propTypes = {
+    children: PropTypes.node,
+    index: PropTypes.number.isRequired,
+    value: PropTypes.number.isRequired,
+};
+
+function a11yProps(index) {
+    return {
+        id: `full-width-tab-${index}`,
+        'aria-controls': `full-width-tabpanel-${index}`,
     };
+}
 
-
-    function TabPanel(props) {
-        const { children, value, index, ...other } = props;
-    
-        return (
-            <div
-                role="tabpanel"
-                hidden={value !== index}
-                id={`full-width-tabpanel-${index}`}
-                aria-labelledby={`full-width-tab-${index}`}
-                {...other}
-            >
-                {value === index && (
-                    <Box sx={{ p: 3 }}>
-                        <Typography>{children}</Typography>
-                    </Box>
-                )}
-            </div>
-        );
-    }
-    
-    TabPanel.propTypes = {
-        children: PropTypes.node,
-        index: PropTypes.number.isRequired,
-        value: PropTypes.number.isRequired,
-    };
-    
-    function a11yProps(index) {
-        return {
-            id: `full-width-tab-${index}`,
-            'aria-controls': `full-width-tabpanel-${index}`,
-        };
-    }
-    
 
 export default function Blog() {
     const theme = useTheme();
@@ -71,10 +71,10 @@ export default function Blog() {
             <div style={clipPathStyle} className='bg-slate-200   absolute w-full h-[700px] flex flex-col text-center'>
                 <div className='container'>
 
-                    <h1 className='text-slate-950 mt-10 max-auto text-5xl font-sans font-bold'>Expert Digital <span className='text-blue-500'>Marketing</span>   </h1>
+                    <h1 className='text-slate-950 mt-10 max-auto text-5xl font-sans font-bold'>Plexus Digital <span className='text-blue-500'>Marketing</span>   </h1>
                     <div className='text-slate-100'>
                     </div>
-                    <p className='text-slate-600 w-[50%] mx-auto mt-4  font-nunito '>Welcome to [Your Blog Name], your pathway to insightful content! Explore our diverse range of articles curated to inspire and inform, fostering meaningful engagement and expanding your knowledge horizons </p>
+                    <p className='text-slate-600 w-[50%] mx-auto mt-4  font-nunito '>Welcome to Plexus Service , your pathway to insightful content! Explore our diverse range of articles curated to inspire and inform, fostering meaningful engagement and expanding your knowledge horizons </p>
                     <Link to='/contactpage'> <button className='bg-blue-500 hover:bg-blue-600 font-nunito text-white w-[100px] h-[40px] rounded mx-auto mt-4'>Get Start</button>
                     </Link>
                 </div>

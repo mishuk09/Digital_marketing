@@ -28,7 +28,7 @@ const Service = () => {
             id: 3,
             img: social,
             title: 'Social Media Marketing',
-            link: '/web',
+            link: '/social',
             details: "Amplifying brand presence and engagement with tailored social strategies and compelling content",
             button: <ButtonChild >View More</ButtonChild>,
         },
@@ -36,13 +36,13 @@ const Service = () => {
             id: 4,
             img: graphic,
             title: 'Graphic Design',
-            link: '/web',
+            link: '/graphic',
             details: "Transforming concepts into captivating visual narratives through creative design solutions",
             button: <ButtonChild >View More</ButtonChild>,
         },
     ]
     return (
-        <div className='container xs:grid-cols-1    grid grid-cols-4 sm:grid-cols-2 lg:grid-cols-4 items-center justify-center gap-3 mt-[80px]'>
+        <div id='service' className='container xs:grid-cols-1    grid grid-cols-4 sm:grid-cols-2 lg:grid-cols-4 items-center justify-center gap-3 mt-[80px]'>
             {
                 // eslint-disable-next-line array-callback-return
                 items.map((item) => (
