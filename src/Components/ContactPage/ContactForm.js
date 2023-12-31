@@ -66,7 +66,7 @@ const ContactForm = () => {
     };
 
     return (
-        <div className="contact-form-container container    bg-slate-900 ">
+        <div className="contact-form-container container relative overflow-hidden   bg-slate-900 ">
             <div className='how-can  mb-5'> <h3 className='font-bold'>How Can We Help You?</h3></div>
             <form ref={form} className="contact-form" onSubmit={handleSubmit}>
                 <div className='name-email flex w-full'>

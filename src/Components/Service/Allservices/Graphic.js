@@ -1,6 +1,8 @@
 import React, { useRef } from 'react';
 import HomePage from '../../HomePage';
+import graphic from './img/graphic.png'
 import web from './img/web.png';
+import graphiccc from './img/graphiccc.png';
 import ButtonFormet from '../../ContactPage/ButtonFormet';
 import Headline from '../../Headline';
 import frontend from './img/frontend.png';
@@ -21,7 +23,7 @@ import { Link } from 'react-router-dom';
 import Article from '../../Article/Article';
 
 
-const Web = () => {
+const Graphic = () => {
     const interviewRef = useRef(null);
 
 
@@ -148,15 +150,13 @@ const Web = () => {
     return (
         <div className=' bg-slate-100'>
             <div className='container'>
-                <HomePage showHeadButton={true} showInterviewDiv={false} showImgDiv={true} headline='Web Development'
-                    description='We specialize in creating fantastic websites that not only look great but also function smoothly.' image={web}>
+                <HomePage showHeadButton={true} showInterviewDiv={false} showImgDiv={true} headline='Graphic Design'
+                    description='We specialize in creating fantastic websites that not only look great but also function smoothly.' image={graphic}>
                 </HomePage>
-                <div className='xs:mt-[390px] md:mt-[300px] lg:mt-[50px]'>
-                    <Headline short='Service' parent="Our " child="Services"></Headline>
-                </div>
 
+                <Headline short='Service' parent="Our " child="Services"></Headline>
 
-                <div className='px-5 my-10 p-5   bg-white relative  '>
+                <div className='px-5 my-10 p-5  bg-white relative  '>
                     <div className=' grid grid-flow-col auto-cols-max gap-3 mt-4 overflow-hidden  ' ref={interviewRef}>
                         {webItems.map((unit) => (
 
@@ -196,10 +196,10 @@ const Web = () => {
 
                     <div className='flex ms-4 flex-col w-[50%]  justify-center'>
                         <h1 className='font-bold text-3xl font-nunito'>
-                            Exploring Top-notch Website Development Companies?
+                            Exploring Top-tier Graphic Design Studios?
                         </h1>
                         <p className='mt-2  text-justify  font-nunito'>
-                            Combining experience and innovation, we provide scalable solutions that leverage trending technologies.
+                            Integrating experience with innovative approaches, we offer scalable solutions that harness the latest trends and technologies to elevate visual creativity
                         </p>
                         <p className='mt-6'>
                             <Link to='/contactpage'> <ButtonFormet>Get Free Consultation</ButtonFormet>
@@ -208,7 +208,7 @@ const Web = () => {
                         </p>
                     </div>
                     <div className='w-[50%] flex items-center text-center justify-center'>
-                        <img className=' p-2 h-full' src={best} alt="" />
+                        <img className=' p-2 h-full' src={graphiccc} alt="" />
                     </div>
 
                 </div>
@@ -240,4 +240,4 @@ const Web = () => {
     );
 };
 
-export default Web;
+export default Graphic;

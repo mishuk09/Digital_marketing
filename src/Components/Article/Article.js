@@ -19,9 +19,12 @@ const Article = () => {
         setValue(newValue);
     };
     return (
-        <div className='bg-slate-100 pb-10'>
+        <div id='article' className='bg-slate-100 pb-10'>
             <div className='container mt-16 pt-5'>
-                <Headline parent='Article' child='Bloog' short='News' isPshow={true} detials="Unlocking the Power of Mindfulness: Learn how practicing mindfulness can transform your daily life, reduce stress, and enhance well-being in this comprehensive guide" > </Headline>
+                <div>
+                    <Headline isShowmore={true} to='/blog' parent='Article' child='Bloog' short='News' isPshow={false}   > </Headline>
+                    <p className='font-nunito xs:text-sm sm:text-xl text-xl mt-2'>Unlocking the Power of Mindfulness: Learn how practicing mindfulness can transform your daily life, reduce stress, and enhance well-being in this comprehensive guide</p>
+                </div>
                 <div className=' mt-4  pt-4 bg-white rounded'>
                     <Box sx={{ width: '100%', typography: 'body1' }}>
                         <TabContext value={value}>
@@ -35,17 +38,17 @@ const Article = () => {
                                 </TabList>
                             </Box>
                             <TabPanel className='  mt-2' value="1">
-                                <div className='m-3 rounded pb-3     border w-full h-full border-slate-400'>
+                                <div className='  rounded pb-3     border w-full h-full border-slate-400'>
                                     <div className='mx-3 mt-2 font-bold'>Headline</div>
-                                    <div className='px-3 py-2 mx-3 mt-1 flex flex-col justify-end rounded-sm border border-slate-400 w-[97%] h-20 '  >
+                                    <div className='px-3 py-2 mx-3 mt-1 flex flex-col justify-end rounded-sm border border-slate-400 w-[97%] xs:w-[90%] sm:w-[97%] h-20 '  >
                                         <div className='rounded-sm   align-bottom text-sm   border border-slate-400 w-[100%] h-4'> </div>
                                     </div>
                                     <div className='mx-3 mt-3 font-bold'>Headline</div>
-                                    <div className='px-3 py-2 mx-3 mt-1 flex flex-col justify-end rounded-sm border border-slate-400 w-[97%] h-20 '  >
+                                    <div className='px-3 py-2 mx-3 mt-1 flex flex-col justify-end rounded-sm border border-slate-400 w-[97%] xs:w-[90%] sm:w-[97%] h-20 '  >
                                         <div className='rounded-sm   align-bottom text-sm   border border-slate-400 w-[100%] h-4'> </div>
                                     </div>
                                     <div className='mx-3 mt-3 font-bold'>Headline</div>
-                                    <div className='px-3 py-2 mx-3 mt-1 flex flex-col justify-end rounded-sm border border-slate-400 w-[97%] h-20 '  >
+                                    <div className='px-3 py-2 mx-3 mt-1 flex flex-col justify-end rounded-sm border border-slate-400 w-[97%] xs:w-[90%] sm:w-[97%] h-20 '  >
                                         <div className='rounded-sm align-bottom text-sm   border border-slate-400 w-[100%] h-4'> </div>
                                     </div>
 

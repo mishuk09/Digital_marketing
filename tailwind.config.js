@@ -13,6 +13,11 @@ module.exports = {
         sans: ['Inter', 'sans-serif'],
         'noto-sans-bengali': ['Noto Sans Bengali', 'sans-serif'],
       },
+      screens: {
+        'xs': '350px', 
+        'sm': '640px', 
+         
+      },
     },
   },
   plugins: [],

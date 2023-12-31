@@ -16,21 +16,21 @@ const ContactPage = () => {
     };
 
     return (
-        <div className='contactpage-div-style pb-10 bg-black' >
+        <div className='contactpage-div-style pb-10 xs:h-[1100px] md:h-[1000px] lg:h-[700px] bg-black' >
 
-            <div className='container contact-page-form relative flex  mt-[10px]'>
-                <div className='hnjhgyh'>
+            <div className='container contact-page-form relative flex xs:flex-col  md:flex-col lg:flex-row   mt-[10px]'>
+                <div className='hnjhgyh md:w-[100%] lg:w-[40%]'>
                     <Fade top>
                         {!showContactInfo && (
                             <img
-                                className='w-[500px] hover:-translate-y-1 duration-300 px-10 mt-[30px]  img-contact-form cursor-pointer'
+                                className='w-[500px] flex md:text-center md:items-center md:justify-center hover:-translate-y-1 duration-300 px-10 mt-[30px]  img-contact-form cursor-pointer'
                                 src={contact}
                                 alt=""
                                 onClick={toggleContactInfo}
                             />
                         )}</Fade>
                     {showContactInfo && (
-                        <div className='relative w-[100%] bg-transparent contactInfo rounded top-0 left-10 bg-gray-900 p-3 ms-10  '>
+                        <div className='relative w-[100%] bg-transparent contactInfo rounded top-0   bg-gray-900 p-3   '>
                             <div className="flex flex-col items-stretch w-[100%] max-md:w-full pt-4 contact-head-child2 ">
                                 <div className="flex grow flex-col    contact-head-child3  ">
                                     <Fade top>
@@ -93,11 +93,14 @@ const ContactPage = () => {
                         </div>
                     )}
                 </div>
-                <Fade right>
-                    <div className='w-[50%]  contactform absolute    right-0  '>
-                        <ContactForm></ContactForm>
-                    </div>
-                </Fade>
+                <div>
+                    <Fade right>
+                        <div className='w-[50%] xs:w-[100%] md:w-[100%] lg:w-[50%] contactform absolute    right-0  '>
+                            <ContactForm></ContactForm>
+                        </div>
+                    </Fade>
+                </div>
+
             </div>
         </div>
     );

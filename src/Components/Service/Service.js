@@ -42,14 +42,14 @@ const Service = () => {
         },
     ]
     return (
-        <div className='container   flex items-center justify-center gap-3 mt-[80px]'>
+        <div className='container xs:grid-cols-1    grid grid-cols-4 sm:grid-cols-2 lg:grid-cols-4 items-center justify-center gap-3 mt-[80px]'>
             {
                 // eslint-disable-next-line array-callback-return
                 items.map((item) => (
                     <Link
                         to={item.link}
                         key={item.id}
-                        className='w-[300px] rounded shadow h-[350px]  bg-white hover:-translate-y-2 duration-300 hover:bg-blue-500'
+                        className='  rounded shadow h-[350px] xl:h-[350px] lg:h-[380px] bg-white hover:-translate-y-2 duration-300 hover:bg-blue-500'
                     >
                         <div className='flex flex-col pt-3 items-center  '>
                             <img className='w-[150px]' src={item.img} alt="" />

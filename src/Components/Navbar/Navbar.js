@@ -32,8 +32,8 @@ const Navbar = () => {
                         </div>
                         <div class="flex flex-1 items-center   justify-center sm:items-stretch sm:justify-start">
                             <Link to='/'>
-                                <div class="flex flex-shrink-0 items-center">
-                                    <img className='w-[200px] p-3' src={mainlogo} alt="" />
+                                <div class="flex flex-shrink-0 items-center overflow-hidden">
+                                    <img className='w-[200px] px-3' src={mainlogo} alt="" />
                                 </div>
                             </Link>
 
@@ -60,8 +60,8 @@ const Navbar = () => {
                                         </React.Fragment>
                                     )}
                                 </PopupState>
-                                <Link href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Blog</Link>
-                                <Link href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Contact</Link>
+                                <a href="#article" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Blog</a>
+                                <a href='#footer' class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Contact</a>
 
 
                                 <Link to='/contactpage'>
