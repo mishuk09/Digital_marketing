@@ -22,8 +22,8 @@ import Article from '../../Article/Article';
 
 
 const Web = () => {
-    const interviewRef = useRef(null);
 
+    const interviewRef = useRef(null);
 
     const scroll = (scrollOffset) => {
         if (interviewRef.current) {
@@ -46,7 +46,7 @@ const Web = () => {
             requestAnimationFrame(animateScroll);
         }
     };
-  
+
     const easeInOutQuad = (t, b, c, d) => {
         t /= d / 2;
         if (t < 1) return (c / 2) * t * t + b;
@@ -148,7 +148,7 @@ const Web = () => {
     return (
         <div className=' bg-slate-100' >
             <div className='container'>
-               
+
                 <HomePage showHeadButton={true} showInterviewDiv={false} showImgDiv={true} headline='Web Development'
                     description='We specialize in creating fantastic websites that not only look great but also function smoothly.' image={web}>
                 </HomePage>

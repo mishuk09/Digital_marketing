@@ -8,7 +8,11 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-
+import Sl from '../Home/Sl';
+import Headline from '../Headline';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import ai from './img/ai.jpeg';
 
 
 
@@ -54,207 +58,108 @@ function a11yProps(index) {
 
 
 export default function Blog() {
-    const theme = useTheme();
-    const [value, setValue] = React.useState(0);
 
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
-    };
+    const webItems = [
+        {
+            id: 1,
+            title: "Ethical Implications of AI in Healthcare",
+            details: "Exploring the ethical considerations surrounding the integration of AI technologies in healthcare, discussing topics like patient privacy, bias in algorithms, and the balance between technological advancement and ethical boundaries.",
+            link: "https://yourwebsite.com/ai-healthcare-ethics"
+        },
+        {
+            id: 2,
+            title: "AI-Powered Personalization in E-commerce",
+            details: "Investigating the role of artificial intelligence in enhancing customer experiences in online shopping, focusing on personalized product recommendations, targeted marketing strategies, and the impact on consumer behavior.",
+            link: "https://yourwebsite.com/ai-ecommerce-personalization"
+        },
+        {
+            id: 3,
+            title: "Explainable AI: Making Machine Learning Transparent",
+            details: "Delving into the concept of explainable AI, discussing techniques and approaches that render AI models interpretable, understandable, and transparent, thus enabling users to comprehend how AI systems make decisions.",
+            link: "https://yourwebsite.com/explainable-ai-machine-learning"
+        },
+        {
+            id: 4,
+            title: "AI in Financial Services: Revolutionizing Fintech",
+            details: "Examining the transformative impact of AI on the financial industry, showcasing applications like algorithmic trading, risk assessment, fraud detection, and the challenges and opportunities AI presents in the fintech landscape.",
+            link: "https://yourwebsite.com/ai-fintech-revolution"
+        },
+        {
+            id: 5,
+            title: "AI and Climate Change: A Technology-Driven Solution?",
+            details: "Analyzing the potential of artificial intelligence as a tool for addressing climate change, exploring AI applications in climate modeling, renewable energy optimization, resource management, and its role in mitigating environmental challenges.",
+            link: "https://yourwebsite.com/ai-climate-change-solution"
+        },
+        {
+            id: 6,
+            title: "Ethical Implications of AI in Healthcare",
+            details: "Exploring the ethical considerations surrounding the integration of AI technologies in healthcare, discussing topics like patient privacy, bias in algorithms, and the balance between technological advancement and ethical boundaries.",
+            link: "https://yourwebsite.com/ai-healthcare-ethics"
+        },
+        {
+            id: 7,
+            title: "AI-Powered Personalization in E-commerce",
+            details: "Investigating the role of artificial intelligence in enhancing customer experiences in online shopping, focusing on personalized product recommendations, targeted marketing strategies, and the impact on consumer behavior.",
+            link: "https://yourwebsite.com/ai-ecommerce-personalization"
+        },
+        {
+            id: 8,
+            title: "Explainable AI: Making Machine Learning Transparent",
+            details: "Delving into the concept of explainable AI, discussing techniques and approaches that render AI models interpretable, understandable, and transparent, thus enabling users to comprehend how AI systems make decisions.",
+            link: "https://yourwebsite.com/explainable-ai-machine-learning"
+        },
+        {
+            id: 9,
+            title: "AI in Financial Services: Revolutionizing Fintech",
+            details: "Examining the transformative impact of AI on the financial industry, showcasing applications like algorithmic trading, risk assessment, fraud detection, and the challenges and opportunities AI presents in the fintech landscape.",
+            link: "https://yourwebsite.com/ai-fintech-revolution"
+        },
+        
+    ];
 
-    const handleChangeIndex = (index) => {
-        setValue(index);
-    };
 
     return (
         <div>
 
-            <div style={clipPathStyle} className='bg-slate-200   absolute w-full h-[700px] flex flex-col text-center'>
+            <div style={clipPathStyle} className='bg-slate-200   relative w-full h-[700px] flex flex-col text-center'>
                 <div className='container'>
 
-                    <h1 className='text-slate-950 mt-10 max-auto text-5xl font-sans font-bold'>Plexus Digital <span className='text-blue-500'>Marketing</span>   </h1>
+                    <h1 className='text-slate-950 mt-10 max-auto text-5xl font-sans font-bold'>Plexus For  <span className='text-blue-500'>Knowledge</span>   </h1>
                     <div className='text-slate-100'>
                     </div>
-                    <p className='text-slate-600 w-[50%] mx-auto mt-4  font-nunito '>Welcome to Plexus Service , your pathway to insightful content! Explore our diverse range of articles curated to inspire and inform, fostering meaningful engagement and expanding your knowledge horizons </p>
-                    <Link to='/contactpage'> <button className='bg-blue-500 hover:bg-blue-600 font-nunito text-white w-[100px] h-[40px] rounded mx-auto mt-4'>Get Start</button>
+                    <p className='text-slate-600 w-[50%] mx-auto mt-4  font-nunito '>Unlocking the Power of Mindfulness! Learn how practicing mindfulness can transform your daily life, reduce stress, and enhance well-being in this comprehensive guide</p>
+                    <Link to='/contactpage'> <button className='bg-blue-500 hover:bg-blue-600 font-nunito text-white w-[100px] h-[40px] rounded mx-auto mt-4'>Write Query</button>
                     </Link>
                 </div>
             </div>
-            <div className='container flex justify-center relative items-center   top-[250px]'>
-                <div className='bg-slate-950 mb-[500px] w-full h-full text-center items-center flex  justify-center rounded'>
+            <div className='container flex justify-center   items-center  xs:top-[530px]     sm:top-[360px]  md:top-[270px]  top-[250px]'>
+                <div className='bg-blue-50 xs:w-[100%] p-3         w-full h-full  rounded'>
+                    <Headline to='/blog' parent='Article' child='Blog' short='News' isPshow={false}   > </Headline>
 
-                    <Box sx={{ bgcolor: 'background.paper', width: '100%', borderRadius: '5px' }}>
-                        <AppBar position="static">
-                            <Tabs
-                                value={value}
-                                onChange={handleChange}
-                                indicatorColor="secondary"
-                                textColor="black"
-                                variant="fullWidth"
-                                aria-label="full width tabs example"
-                            >
-                                <Tab label="Programming Language" {...a11yProps(0)} />
-                                <Tab label="Framewoek & Library" {...a11yProps(1)} />
-                                <Tab label="Tools" {...a11yProps(2)} />
-                                <Tab label="Top MNC" {...a11yProps(3)} />
-                                <Tab label="About COmpany" {...a11yProps(4)} />
-                            </Tabs>
-                        </AppBar>
-                        <SwipeableViews
-                            axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-                            index={value}
-                            onChangeIndex={handleChangeIndex}
-                        >
-                            <TabPanel value={value} index={0} dir={theme.direction}>
-                                <div className=' font-verdina text-3xl font-bold mt-3 mb-2'>Interview Question For Programming Language</div>
-                                <div className='font-nunito'> Delve into the core of computing with our fundamental interview section. Explore essential concepts, from hardware to software, to prepare for comprehensive discussions. Master the foundational principles for a confident stride in your interviews.
+                    <div className='grid grid-cols-3   auto-cols-max gap-3 my-4    ' >
+                        {webItems.map((unit) => (
+                            <div class="max-w-sm bg-white rounded mt-3  shadow hover:-translate-y-2 duration-300">
+                                <img class="w-full rounded-t-md" src={ai} alt="Sunset in the mountains" />
+                                <div class="px-6 py-4">
+                                    <div class="font-bold text-xl mb-2">The Coldest Sunset</div>
+                                    <p class="text-gray-700 text-base">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
+                                    </p>
                                 </div>
-                                <div className="flex flex-wrap  gap-3 mt-4">
-                                    {/* {
-                                        Language.map((tutorial) => (
+                                <div class="px-6 flex justify-between pt-4 pb-2">
+                                    <div> <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">12 December 2023</span>
+                                    </div>
 
-                                            // eslint-disable-next-line jsx-a11y/anchor-has-content
-
-                                            <Link
-                                                key={tutorial.id}
-                                                to={tutorial.link}
-                                                className='shadow-sm rounded  transition ease-in-out delay-50  hover:-translate-y-2 hover:scale-40  duration-400 '
-                                            >
-                                                <div className='w-[130px] h-36 rounded bg-slate-100 hover:bg-slate-200 flex flex-col items-center justify-center'>
-                                                    <div>
-                                                        <img className='w-[70px] h-[70px]' src={tutorial.img} alt="" />
-                                                    </div>
-                                                    <div className='text-black mt-1 font-verdina text-sm'>
-                                                        {tutorial.title}
-                                                    </div>
-                                                </div>
-
-                                            </Link>
-
-
-                                        ))
-                                    } */}
+                                    <div>
+                                        <button class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"> Seemore
+                                            <FontAwesomeIcon className='ms-1' icon={faArrowRight} /></button>
+                                    </div>
                                 </div>
-                            </TabPanel>
-                            <TabPanel value={value} index={1} dir={theme.direction}>
-                                <div className=' font-verdina text-3xl font-bold mt-3 mb-2'>Interview Questions about Library & Framework</div>
-                                <div className='font-nunito'> Delve into the core of computing with our fundamental interview section. Explore essential concepts, from hardware to software, to prepare for comprehensive discussions. Master the foundational principles for a confident stride in your interviews.
-                                </div>
-                                <div className="flex flex-wrap  gap-3 mt-4">
-                                    {/* {
-                                        Library.map((tutorial) => (
-
-                                            <Link
-                                                key={tutorial.id}
-                                                to={tutorial.link}
-                                                className='shadow-sm rounded  transition ease-in-out delay-50  hover:-translate-y-2 hover:scale-40  duration-400 '
-                                            >
-                                                <div className='w-[130px] h-36 rounded bg-slate-100 hover:bg-slate-200 flex flex-col items-center justify-center'>
-                                                    <div>
-                                                        <img className='w-[70px] h-[70px]' src={tutorial.img} alt="" />
-                                                    </div>
-                                                    <div className='text-black mt-1 font-verdina text-sm'>
-                                                        {tutorial.title}
-                                                    </div>
-                                                </div>
-
-                                            </Link>
+                            </div>
+                        ))}
 
 
-                                        ))
-                                    } */}
-                                </div>
-                            </TabPanel>
-                            <TabPanel value={value} index={2} dir={theme.direction}>
-                                <div className=' font-verdina text-3xl font-bold mt-3 mb-2'>Interview Questions about Tools</div>
-                                <div className='font-nunito'> Delve into the core of computing with our fundamental interview section. Explore essential concepts, from hardware to software, to prepare for comprehensive discussions. Master the foundational principles for a confident stride in your interviews.
-                                </div>
-                                <div className="flex flex-wrap overflow-x-auto   gap-3 mt-4">
-                                    {/* {
-                                        Tools.slice(0, 16).map((tutorial) => (
-
-                                            <Link
-                                                key={tutorial.id}
-                                                to={tutorial.link}
-                                                className='shadow-sm rounded  transition ease-in-out delay-50  hover:-translate-y-2 hover:scale-40  duration-400 '
-                                            >
-                                                <div className='w-[130px] h-36 rounded bg-slate-100 hover:bg-slate-200 flex flex-col items-center justify-center'>
-                                                    <div>
-                                                        <img className='w-[70px] h-[70px]' src={tutorial.img} alt="" />
-                                                    </div>
-                                                    <div className='text-black mt-1 font-verdina text-sm'>
-                                                        {tutorial.title}
-                                                    </div>
-                                                </div>
-
-                                            </Link>
-
-
-                                        ))
-                                    } */}
-                                </div>
-                            </TabPanel>
-                            <TabPanel value={value} index={3} dir={theme.direction}>
-                                <div className=' font-verdina text-3xl font-bold mt-3 mb-2'>Top MNC</div>
-                                <div className='font-nunito'> Delve into the core of computing with our fundamental interview section. Explore essential concepts, from hardware to software, to prepare for comprehensive discussions. Master the foundational principles for a confident stride in your interviews.
-                                </div>
-                                <div className="flex flex-wrap  gap-3 mt-4">
-                                    {/* {
-                                        interviewObject.map((tutorial) => (
-
-                                            <Link
-                                                key={tutorial.id}
-                                                to={tutorial.link}
-                                                className='shadow-sm rounded  transition ease-in-out delay-50  hover:-translate-y-2 hover:scale-40  duration-400 '
-                                            >
-                                                <div className='w-[130px] h-36 rounded bg-slate-100 hover:bg-slate-200 flex flex-col items-center justify-center'>
-                                                    <div>
-                                                        <img className='w-[70px] h-[70px]' src={tutorial.img} alt="" />
-                                                    </div>
-                                                    <div className='text-black mt-1 font-verdina text-sm'>
-                                                        {tutorial.title}
-                                                    </div>
-                                                </div>
-
-                                            </Link>
-
-
-                                        ))
-                                    } */}
-                                </div>
-                            </TabPanel>
-                            <TabPanel value={value} index={4} dir={theme.direction}>
-                                <div className=' font-verdina text-3xl font-bold mt-3 mb-2'>About Company</div>
-                                <div className='font-nunito'> Delve into the core of computing with our fundamental interview section. Explore essential concepts, from hardware to software, to prepare for comprehensive discussions. Master the foundational principles for a confident stride in your interviews.
-                                </div>
-                                <div className="flex flex-wrap  gap-3 mt-4">
-                                    {/* {
-                                        interviewObject.map((tutorial) => (
-
-                                            <Link
-                                                key={tutorial.id}
-                                                to={tutorial.link}
-                                                className='shadow-sm rounded  transition ease-in-out delay-50  hover:-translate-y-2 hover:scale-40  duration-400 '
-                                            >
-                                                <div className='w-[130px] h-36 rounded bg-slate-100 hover:bg-slate-200 flex flex-col items-center justify-center'>
-                                                    <div>
-                                                        <img className='w-[70px] h-[70px]' src={tutorial.img} alt="" />
-                                                    </div>
-                                                    <div className='text-black mt-1 font-verdina text-sm'>
-                                                        {tutorial.title}
-                                                    </div>
-                                                </div>
-
-                                            </Link>
-
-
-                                        ))
-                                    } */}
-                                </div>
-                            </TabPanel>
-                        </SwipeableViews>
-                    </Box>
-
-
+                    </div>
                 </div>
             </div>
 
