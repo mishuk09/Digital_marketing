@@ -9,13 +9,13 @@ Welcome to Plexus Service, your gateway to digital success! Elevate your brand w
 
 ## Table of Contents
 
-- [Home](#home)
-- [About](#about)
-- [Services](#services)
-- [Blog](#blog)
-- [Testimonials](#testimonials)
-- [Contact](#contact)
-- [Get a Free Call](#get-a-free-call)
+- Home 
+- About 
+- Services 
+- Blog 
+- Testimonials 
+- Contact 
+- Get a Free Call 
 
 ⚠️ Copyright Notice ⚠️
 
@@ -39,57 +39,42 @@ Take the first step towards success.
 
 Crafting bespoke digital experiences through innovative coding and design.
 
-[View More](WEB_DEVELOPMENT_URL)
+[View More](https://plexus.org.in/web)
 
 ### SEO Optimization 📈
 
 Elevating online visibility and organic traffic through strategic optimization techniques.
 
-[View More](SEO_OPTIMIZATION_URL)
+[View More](https://plexus.org.in/seo)
 
 ### Social Media Marketing 📱
 
 Amplifying brand presence and engagement with tailored social strategies and compelling content.
 
-[View More](SOCIAL_MEDIA_MARKETING_URL)
+[View More](https://plexus.org.in/social)
 
 ### Graphic Design 🎨
 
 Transforming concepts into captivating visual narratives through creative design solutions.
 
-[View More](GRAPHIC_DESIGN_URL)
+[View More](https://plexus.org.in/graphic)
 
 ## Blog 📰
 
 ### News 🗞️
 
-- [Article Blog Title 1](BLOG_ARTICLE_1_URL)
-  - Description for article 1
-  - Date
+- [Article Blog]( https://plexus.org.in/blog)
+ 
+ 
 
-- [Article Blog Title 2](BLOG_ARTICLE_2_URL)
-  - Description for article 2
-  - Date
-
-(Repeat for other articles)
-
-## Testimonials 🌟
-
-*Add testimonials or client feedback here.*
-
+ 
 ## Contact 📞
 
 ### Contact Form ✉️
 
 How Can We Help You?
 
-- Name
-- Email
-- Phone
-- Subject
-- Your Message
-
-[Send](MAILTO_LINK_OR_FORM_SUBMISSION)
+[Write to us](https://plexus.org.in/contactpage)
 
 ### Address 📍
 
