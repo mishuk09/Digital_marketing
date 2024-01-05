@@ -39,31 +39,31 @@ Take the first step towards success.
 
 Crafting bespoke digital experiences through innovative coding and design.
 
-[View More](https://plexus.org.in/web)
+[View More](https://plexus.org.in)
 
 ### SEO Optimization 📈
 
 Elevating online visibility and organic traffic through strategic optimization techniques.
 
-[View More](https://plexus.org.in/seo)
+[View More](https://plexus.org.in)
 
 ### Social Media Marketing 📱
 
 Amplifying brand presence and engagement with tailored social strategies and compelling content.
 
-[View More](https://plexus.org.in/social)
+[View More](https://plexus.org.in)
 
 ### Graphic Design 🎨
 
 Transforming concepts into captivating visual narratives through creative design solutions.
 
-[View More](https://plexus.org.in/graphic)
+[View More](https://plexus.org.in)
 
 ## Blog 📰
 
 ### News 🗞️
 
-- [Article Blog]( https://plexus.org.in/blog)
+- [Article Blog]( https://plexus.org.in)
  
  
 
@@ -74,7 +74,7 @@ Transforming concepts into captivating visual narratives through creative design
 
 How Can We Help You?
 
-[Write to us](https://plexus.org.in/contactpage)
+[Write to us](https://plexus.org.in)
 
 ### Address 📍
 
