@@ -8,14 +8,17 @@ import ButtonFormet from '../ContactPage/ButtonFormet';
 
 
 const Nav = () => {
+
     const navigation = [
-        { name: 'Home', href: '/', current: false },
-        { name: 'About', href: '#about', current: false },
-        { name: 'Services', href: '#service', current: false },
-        { name: 'Blog', href: '#article', current: false },
-        { name: 'Testimonier', href: '/#testimonials', current: false },
-        { name: 'Contact', href: '/contactpage', current: false }
+        { name: 'Home', link: '/', current: false },
+        { name: 'About', link: '/#about', current: false },
+        { name: 'Services', link: '/#service', current: false },
+        { name: 'Blog', link: '/blog', current: false },
+        { name: 'Testimonials', link: '/#testimonials', current: false },
+        { name: 'Contact', link: '/#contact', current: false }
     ];
+
+
 
     function classNames(...classes) {
         return classes.filter(Boolean).join(' ');
@@ -50,21 +53,40 @@ const Nav = () => {
                                     </Link>
                                 </div>
                                 <div className="hidden sm:ml-6 my-2 md:ml-[80px] lg:ml-[300px] xl:ml-[500px]  text-right items-end justify-end   sm:block navbar-head-child2">
-                                    <div className="flex  space-x-1 navbar-head-child3">
-                                        {navigation.map((item) => (
-                                            <a
-                                                key={item.name}
-                                                href={item.href}
-                                                className={classNames(
-                                                    item.current ? 'bg-gray-900  text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                                                    'rounded-md px-2 py-2 text-sm font-medium'
-                                                )}
-                                                aria-current={item.current ? 'page' : undefined}
-                                            >
-                                                {item.name}
-                                            </a>
-                                        ))}
+                                    <div className="flex space-x-1 navbar-head-child3">
+                                        {navigation.map((item) => {
+                                            if (item.name === 'Blog') {
+                                                return (
+                                                    <Link
+                                                        key={item.name}
+                                                        to={item.link}
+                                                        className={classNames(
+                                                            item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                                                            'rounded-md px-2 py-2 text-sm font-medium'
+                                                        )}
+                                                        aria-current={item.current ? 'page' : undefined}
+                                                    >
+                                                        {item.name}
+                                                    </Link>
+                                                );
+                                            } else {
+                                                return (
+                                                    <a
+                                                        key={item.name}
+                                                        href={item.link}
+                                                        className={classNames(
+                                                            item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                                                            'rounded-md px-2 py-2 text-sm font-medium'
+                                                        )}
+                                                        aria-current={item.current ? 'page' : undefined}
+                                                    >
+                                                        {item.name}
+                                                    </a>
+                                                );
+                                            }
+                                        })}
                                     </div>
+
                                 </div>
                             </div>
                             <div className="absolute inset-y-0 right-0 sm:hidden md:block xs:hidden  flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 navbar-child-child">
@@ -82,7 +104,8 @@ const Nav = () => {
                                 <Disclosure.Button
                                     key={item.name}
                                     as="a"
-                                    href={item.href}
+                                    link={item.link}
+
                                     className={classNames(
                                         item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                                         'block rounded-md px-3 py-2 text-base font-medium'

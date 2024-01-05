@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="App">
 
-     
+
       <Nav />
       <Top />
 
@@ -26,6 +26,9 @@ function App() {
         <Route path='/web' element={<Web />}></Route>
         <Route path='/seo' element={<Seo />}></Route>
         <Route path='/graphic' element={<Graphic />}></Route>
+
+
+        <Route path='blog' element={<Blog />}></Route>
 
         {/* Blogsite ROUTES */}
 

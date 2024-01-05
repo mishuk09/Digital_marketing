@@ -15,8 +15,8 @@ const ContactPage = () => {
     };
 
     return (
-        <div className='contactpage-div-style pb-10 xs:h-[1100px] md:h-[1000px] lg:h-[700px] bg-black' >
-            <div className='container contact-page-form relative flex xs:flex-col  md:flex-col lg:flex-row    '>
+        <div id='contact' className='contactpage-div-style pb-10 xs:h-[1100px] md:h-[1000px] lg:h-[700px] bg-black' >
+            <div className='container contact-page-form relative flex xs:flex-col pt-14  md:flex-col lg:flex-row    '>
                 <div className='hnjhgyh md:w-[100%] lg:w-[40%]'>
                     <Fade top>
                         {!showContactInfo && (
