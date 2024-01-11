@@ -9,12 +9,13 @@ import Seo from './Components/Service/Allservices/Seo';
 import Blog from './Components/Blog/Blog';
 import Graphic from './Components/Service/Allservices/Graphic';
 import Nav from './Components/Navbar/Nav';
+import WhatsApp from './Components/Whatsapp/Whatsapp';
 
 function App() {
   return (
     <div className="App">
 
-
+      <WhatsApp />
       <Nav />
       <Top />
 
