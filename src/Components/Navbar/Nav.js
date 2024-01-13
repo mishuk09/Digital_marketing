@@ -5,6 +5,8 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import mainlogo from './img/mainlogo.png';
 import { Link } from 'react-router-dom';
 import ButtonFormet from '../ContactPage/ButtonFormet';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 
 const Nav = () => {
@@ -52,7 +54,7 @@ const Nav = () => {
                                         />
                                     </Link>
                                 </div>
-                                <div className="hidden sm:ml-6 my-2 md:ml-[80px] lg:ml-[300px] xl:ml-[500px]  text-right items-end justify-end   sm:block navbar-head-child2">
+                                <div className="hidden sm:ml-6 my-2 md:ml-[0px] lg:ml-[300px] xl:ml-[440px]  text-right items-end justify-end   sm:block navbar-head-child2">
                                     <div className="flex space-x-1 navbar-head-child3">
                                         {navigation.map((item) => {
                                             if (item.name === 'Blog') {
@@ -92,7 +94,12 @@ const Nav = () => {
                             <div className="absolute inset-y-0 right-0 sm:hidden md:block xs:hidden  flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 navbar-child-child">
                                 <Link to='/contactpage'>
 
-                                    <ButtonFormet> Get a Free Call</ButtonFormet>
+                                    <ButtonFormet > Get a Free Call</ButtonFormet>
+                                </Link>
+                            </div>
+                            <div>
+                                <Link to='/signin' >
+                                    <FontAwesomeIcon className='text-white ms-4 hover:text-blue-500 duration-300' icon={faUser} size='xl' />
                                 </Link>
                             </div>
                         </div>
