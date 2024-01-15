@@ -15,6 +15,7 @@ import { Google } from '@mui/icons-material';
 import { createUserWithEmailAndPassword, GoogleAuthProvider, sendEmailVerification, signInWithPopup, } from 'firebase/auth';
 import { getAuth } from 'firebase/auth';
 import app from '../Firebase/Firebase.init';
+import useFirebase from '../Hooks/useFirebase';
 const auth = getAuth(app)
 
 
@@ -22,25 +23,10 @@ const auth = getAuth(app)
 
 
 export default function Signup() {
-    const googleprovider = new GoogleAuthProvider();
-
+    
+    const { signInWithGoogle } = useFirebase();
 
     const [user, setUser] = useState({});
-
-    const handleGoogleSignin = () => {
-        signInWithPopup(auth, googleprovider)
-            .then(result => {
-                const user = result.user;
-                setUser(user);
-                console.log(user)
-                setEmail('');
-                setPassword('');
-            })
-            .catch(error => {
-                console.log("Error", error);
-            })
-    }
-
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -176,7 +162,7 @@ export default function Signup() {
                             <Grid container justifyContent="center" style={{ marginTop: '20px' }}>
                                 <Button
                                     variant="contained"
-                                    onClick={handleGoogleSignin}
+                                    onClick={signInWithGoogle}
                                     startIcon={<Google />}
                                     fullWidth
                                     sx={{ width: '100%', marginBottom: '7px' }}

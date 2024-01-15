@@ -13,7 +13,8 @@ import Nav from './Components/Navbar/Nav';
 import WhatsApp from './Components/Whatsapp/Whatsapp';
 import Login from './Components/Login/Login';
 import Signup from './Components/Login/Signup';
- 
+import BlogDetails from './Components/Blog/BlogDetails';
+
 
 function App() {
   return (
@@ -29,6 +30,8 @@ function App() {
         <Route path='/graphic' element={<Graphic />} />
         <Route path='/signin' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
+        <Route path='/blogs/:blogid' element={<BlogDetails />}></Route>
+
 
         {/* Use PrivateRoute for the Adminpage */}
         {/* <PrivateRoute path='/adminpage' element={<Adminpage />} /> */}

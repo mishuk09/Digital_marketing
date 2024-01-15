@@ -7,10 +7,13 @@ import { Link } from 'react-router-dom';
 import ButtonFormet from '../ContactPage/ButtonFormet';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
+import useFirebase from '../Hooks/useFirebase';
 
 
 const Nav = () => {
 
+
+    const { user, handleSIgnOut } = useFirebase();
     const navigation = [
         { name: 'Home', link: '/', current: false },
         { name: 'About', link: '/#about', current: false },
@@ -97,11 +100,13 @@ const Nav = () => {
                                     <ButtonFormet > Get a Free Call</ButtonFormet>
                                 </Link>
                             </div>
-                            <div>
-                                <Link to='/signin' >
-                                    <FontAwesomeIcon className='text-white ms-4 hover:text-blue-500 duration-300' icon={faUser} size='xl' />
-                                </Link>
-                            </div>
+                            {user?.uid ?
+                                <button onClick={handleSIgnOut} className='text-white'>Signout</button> :
+                                <div>
+                                    <Link to='/signin' >
+                                        <FontAwesomeIcon className='text-white ms-4 hover:text-blue-500 duration-300' icon={faUser} size='xl' />
+                                    </Link>
+                                </div>}
                         </div>
                     </div>
 

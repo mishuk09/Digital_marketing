@@ -28,6 +28,7 @@
     "react": "^18.2.0",
     "react-bootstrap": "^2.9.2",
     "react-dom": "^18.2.0",
+    "react-firebase-hooks": "^5.1.1",
     "react-flow-renderer": "^10.3.17",
     "react-phone-number-input": "^3.3.8",
     "react-responsive-carousel": "^3.2.23",

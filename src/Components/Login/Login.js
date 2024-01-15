@@ -11,13 +11,20 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { Link } from 'react-router-dom';
-import { Navigate } from 'react-router-dom'; 
+import { Navigate } from 'react-router-dom';
 import { getAuth, sendPasswordResetEmail, signInWithEmailAndPassword } from 'firebase/auth';
 import app from '../Firebase/Firebase.init';
-const auth = getAuth(app) 
+import useFirebase from '../Hooks/useFirebase';
+import { Google } from '@mui/icons-material';
+const auth = getAuth(app)
 
 
 export default function Signin() {
+
+    const { signInWithGoogle } = useFirebase();
+
+
+
     const [islogin, setIslogin] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -26,14 +33,14 @@ export default function Signin() {
     }
     const getPassword = (event) => {
         setPassword(event.target.value);
-    } 
+    }
     const handleSubmit = event => {
         signInWithEmailAndPassword(auth, email, password)
             .then(result => {
                 // const user = result.user;
                 setEmail('');
                 setPassword('');
-                setIslogin(true) 
+                setIslogin(true)
             })
             .catch(error => {
                 console.error('Error creating user:', error.message);
@@ -116,6 +123,23 @@ export default function Signin() {
                             <Link to='/signup' variant="body2">
                                 Sign Up
                             </Link>
+                        </Grid>
+                        <Grid item>
+                            Or Sign With
+
+                        </Grid>
+                        <Grid container justifyContent="center" style={{ marginTop: '20px' }}>
+                            <Button
+                                variant="contained"
+                                onClick={signInWithGoogle}
+                                startIcon={<Google />}
+                                fullWidth
+                                sx={{ width: '100%', marginBottom: '7px' }}
+                            >
+                                Google
+                            </Button>
+
+
                         </Grid>
                     </Grid>
                 </Box>

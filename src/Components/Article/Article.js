@@ -1,12 +1,19 @@
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
 import Headline from '../Headline';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import webItems from '../Blog/webItems';
+// import webItems from '../Blog/webItems';
 import ai from '../Blog/img/ai.jpeg';
 
 const Article = () => {
     const interviewRef = React.useRef(null);
+
+    const [blog, setBlog] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:5000/blogs')
+            .then(res => res.json())
+            .then(data => setBlog(data));
+    }, [])
 
     const scroll = (scrollOffset) => {
         if (interviewRef.current) {
@@ -57,11 +64,11 @@ const Article = () => {
                                 <div className='grid grid-flow-col auto-cols-max gap-3 mt-4 overflow-hidden' ref={interviewRef}>
 
 
-                                    {webItems.map((unit) => (
+                                    {blog.map((unit) => (
                                         <div class="max-w-sm bg-white rounded mt-3 mb-3 shadow hover:-translate-y-2 duration-300">
                                             <img class="w-full rounded-t-md" src={ai} alt="Sunset in the mountains" />
                                             <div class="px-6 py-4">
-                                                <div class="font-bold text-xl mb-2">The Coldest Sunset</div>
+                                                <div class="font-bold text-xl mb-2"> {unit.name}</div>
                                                 <p class="text-gray-700 text-base">
                                                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
                                                 </p>
