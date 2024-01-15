@@ -1,4 +1,5 @@
-import { Route, Routes } from 'react-router-dom';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import ChildDiv from './ChildDiv';
 import ContactPage from './Components/ContactPage/ContactPage';
@@ -12,37 +13,30 @@ import Nav from './Components/Navbar/Nav';
 import WhatsApp from './Components/Whatsapp/Whatsapp';
 import Login from './Components/Login/Login';
 import Signup from './Components/Login/Signup';
+ 
 
 function App() {
   return (
     <div className="App">
-
       <WhatsApp />
       <Nav />
       <Top />
 
       <Routes>
+        <Route path='/' element={<ChildDiv />} />
+        <Route path='/web' element={<Web />} />
+        <Route path='/seo' element={<Seo />} />
+        <Route path='/graphic' element={<Graphic />} />
+        <Route path='/signin' element={<Login />} />
+        <Route path='/signup' element={<Signup />} />
 
-        <Route path='/' element={<ChildDiv />}></Route>
+        {/* Use PrivateRoute for the Adminpage */}
+        {/* <PrivateRoute path='/adminpage' element={<Adminpage />} /> */}
 
-        {/* Services ROUTES */}
-        <Route path='/web' element={<Web />}></Route>
-        <Route path='/seo' element={<Seo />}></Route>
-        <Route path='/graphic' element={<Graphic />}></Route>
-
-
-
-        {/* Login page ROUTES */}
-        <Route path='/signin' element={<Login />}></Route>
-        <Route path='/signup' element={<Signup />}></Route>
-
-        <Route path='blog' element={<Blog />}></Route>
-
-        {/* Blogsite ROUTES */}
-
-        <Route path='/blog' element={<Blog />}></Route>
-        <Route path='/contactpage' element={<ContactPage />}></Route>
+        <Route path='/blog' element={<Blog />} />
+        <Route path='/contactpage' element={<ContactPage />} />
       </Routes>
+
       <Footer />
     </div>
   );

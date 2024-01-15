@@ -11,15 +11,14 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { Link } from 'react-router-dom';
-
+import { Navigate } from 'react-router-dom'; 
 import { getAuth, sendPasswordResetEmail, signInWithEmailAndPassword } from 'firebase/auth';
 import app from '../Firebase/Firebase.init';
-const auth = getAuth(app)
-
+const auth = getAuth(app) 
 
 
 export default function Signin() {
-
+    const [islogin, setIslogin] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const getEmail = (event) => {
@@ -27,14 +26,14 @@ export default function Signin() {
     }
     const getPassword = (event) => {
         setPassword(event.target.value);
-    }
-
-
+    } 
     const handleSubmit = event => {
         signInWithEmailAndPassword(auth, email, password)
             .then(result => {
-                const user = result.user;
-                console.log(user);
+                // const user = result.user;
+                setEmail('');
+                setPassword('');
+                setIslogin(true) 
             })
             .catch(error => {
                 console.error('Error creating user:', error.message);
@@ -49,7 +48,9 @@ export default function Signin() {
                 console.log("Email send");
             })
     }
-
+    if (islogin) {
+        return <Navigate to="/admin" />;
+    }
     return (
 
         <Container component="main" maxWidth="xs">

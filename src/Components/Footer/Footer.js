@@ -6,7 +6,7 @@ import { faBriefcase, faCode, faEnvelope, faGears, faHeadset, faLayerGroup, faMa
 
 const Footer = () => {
     return (
-        <div id='footer'   >
+        <div id='footer' className=' bottom-0 w-full'  >
             <div className='bg-slate-950 xs:h-[540px]  md:h-auto sm:h-auto  w-full h-[200px]'>
                 <div className='container pb-4 grid grid-cols-4 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center justify-center text-center'>
                     <div className='w-full h-full xs:text-center  xs:items-center xs:justify-center flex flex-col items-center justify-center overflow-hidden'>
