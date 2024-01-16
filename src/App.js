@@ -14,6 +14,9 @@ import WhatsApp from './Components/Whatsapp/Whatsapp';
 import Login from './Components/Login/Login';
 import Signup from './Components/Login/Signup';
 import BlogDetails from './Components/Blog/BlogDetails';
+import Adminpage from './Components/Login/Adminpage/Adminpage';
+import RequireAuth from './Components/RequireAuth/RequireAuth';
+import AddBlogs from './Components/Blog/AddBlogs';
 
 
 function App() {
@@ -34,7 +37,17 @@ function App() {
 
 
         {/* Use PrivateRoute for the Adminpage */}
-        {/* <PrivateRoute path='/adminpage' element={<Adminpage />} /> */}
+
+        <Route path='/adminpage' element={
+          <RequireAuth>
+            <Adminpage />
+          </RequireAuth>
+        } />
+        <Route path='/addblog' element={
+          <RequireAuth>
+            <AddBlogs />
+          </RequireAuth>
+        } />
 
         <Route path='/blog' element={<Blog />} />
         <Route path='/contactpage' element={<ContactPage />} />

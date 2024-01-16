@@ -7,13 +7,16 @@ import { Link } from 'react-router-dom';
 import ButtonFormet from '../ContactPage/ButtonFormet';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
-import useFirebase from '../Hooks/useFirebase';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { getAuth, signOut } from 'firebase/auth';
+import app from '../Firebase/Firebase.init';
 
+const auth = getAuth(app);
 
 const Nav = () => {
 
 
-    const { user, handleSIgnOut } = useFirebase();
+    const [user] = useAuthState(auth);
     const navigation = [
         { name: 'Home', link: '/', current: false },
         { name: 'About', link: '/#about', current: false },
@@ -26,7 +29,7 @@ const Nav = () => {
 
 
     function classNames(...classes) {
-        return classes.filter(Boolean).join(' ');
+        return classes.filter(Boolean).join('');
     }
 
     return (
@@ -101,7 +104,7 @@ const Nav = () => {
                                 </Link>
                             </div>
                             {user?.uid ?
-                                <button onClick={handleSIgnOut} className='text-white'>Signout</button> :
+                                <button onClick={() => signOut(auth)} className='text-white'>Signout</button> :
                                 <div>
                                     <Link to='/signin' >
                                         <FontAwesomeIcon className='text-white ms-4 hover:text-blue-500 duration-300' icon={faUser} size='xl' />
