@@ -17,6 +17,7 @@ import BlogDetails from './Components/Blog/BlogDetails';
 import Adminpage from './Components/Login/Adminpage/Adminpage';
 import RequireAuth from './Components/RequireAuth/RequireAuth';
 import AddBlogs from './Components/Blog/AddBlogs';
+import ManageBlog from './Components/Login/Adminpage/ManageBlog';
 
 
 function App() {
@@ -46,6 +47,11 @@ function App() {
         <Route path='/addblog' element={
           <RequireAuth>
             <AddBlogs />
+          </RequireAuth>
+        } />
+        <Route path='/manageblog' element={
+          <RequireAuth>
+            <ManageBlog />
           </RequireAuth>
         } />
 

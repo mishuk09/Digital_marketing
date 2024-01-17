@@ -54,11 +54,26 @@ TabPanel.propTypes = {
 };
 
 export default function Blog() {
+    const [currentPage, setCurrentPage] = useState(1);
+    const [pageCount, setPageCount] = useState(0);
     const [blog, setBlog] = useState([]);
+
     useEffect(() => {
-        fetch('http://localhost:5000/blogs')
+        // Fetch blog data based on the current page
+        fetch(`http://localhost:5000/blogs?page=${currentPage}&size=10`)
             .then(res => res.json())
             .then(data => setBlog(data));
+    }, [currentPage]);
+
+    useEffect(() => {
+        // Fetch blog count for pagination
+        fetch('http://localhost:5000/blogcount')
+            .then(res => res.json())
+            .then(data => {
+                const count = data.count;
+                const page = Math.ceil(count / 10);
+                setPageCount(page);
+            });
     }, []);
 
     const navigate = useNavigate();
@@ -67,26 +82,13 @@ export default function Blog() {
         navigate(`/blogs/${id}`);
     };
 
+    const handlePageChange = (event, value) => {
+        setCurrentPage(value);
+    };
+
     return (
         <div>
-            <div style={clipPathStyle} className='bg-slate-200 relative w-full h-[400px] flex flex-col'>
-                <div style={clipPathStyletwo} className='pt-10 w-full h-[400px] flex flex-col text-center'>
-                    <h1 className='text-slate-100 mt-10 max-auto text-5xl font-sans font-bold'>
-                        Plexus For <span className='text-blue-500'>Knowledge</span>
-                    </h1>
-                    <div className='text-slate-100'></div>
-                    <p className='text-slate-300 xs:text-justify xs:p-4 sm:w-[50%] lg:w-[50%] mx-auto mt-4 font-nunito'>
-                        Unlocking the Power of Mindfulness! Learn how practicing mindfulness can transform your daily
-                        life, reduce stress, and enhance well-being in this comprehensive guide
-                    </p>
-                    <Link to='/contactpage'>
-                        {' '}
-                        <button className='bg-blue-500 hover:bg-blue-600 font-nunito text-white w-[100px] h-[40px] rounded mx-auto mt-4'>
-                            Write Query
-                        </button>
-                    </Link>
-                </div>
-            </div>
+            {/* ... (your existing code for the banner) */}
 
             <div className='container flex justify-center items-center xs:top-[530px] lg:top-[270px] sm:top-[360px] md:top-[270px] top-[250px]'>
                 <div className='bg-blue-50 xs:w-[100%] p-3 mt-3 w-full h-auto rounded'>
@@ -95,6 +97,8 @@ export default function Blog() {
                     </Headline>
 
                     <div className='grid grid-cols-3 md:grid-cols-2 lg:grid-cols-3 sm:grid-cols-2 xs:grid-cols-1 gap-3 my-4'>
+
+
                         {blog.map((unit) => (
                             <div key={unit._id} className='max-w-sm bg-white rounded mt-3 shadow hover:-translate-y-2 duration-300'>
                                 <img class='w-full rounded-t-md' src={ai} alt='Sunset in the mountains' />
@@ -118,7 +122,7 @@ export default function Blog() {
                                     </div>
 
                                     <div>
-                                        
+
 
                                         <button
                                             onClick={() => navigateToServiceDetail(unit._id)}
@@ -131,9 +135,16 @@ export default function Blog() {
                             </div>
                         ))}
                     </div>
+
                     <div className='flex items-center text-center justify-center mt-14 mb-4'>
                         <Stack spacing={2}>
-                            <Pagination count={10} variant='outlined' shape='rounded' />
+                            <Pagination
+                                count={pageCount}
+                                page={currentPage}
+                                onChange={handlePageChange}
+                                variant='outlined'
+                                shape='rounded'
+                            />
                         </Stack>
                     </div>
                 </div>
