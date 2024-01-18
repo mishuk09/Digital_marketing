@@ -34,7 +34,7 @@ function App() {
         <Route path='/graphic' element={<Graphic />} />
         <Route path='/signin' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
-        <Route path='/blogs/:blogid' element={<BlogDetails />}></Route>
+        <Route path='/blogsdetails/:blogid' element={<BlogDetails />}></Route>
 
 
         {/* Use PrivateRoute for the Adminpage */}
