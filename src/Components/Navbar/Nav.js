@@ -6,9 +6,9 @@ import mainlogo from './img/mainlogo.png';
 import { Link } from 'react-router-dom';
 import ButtonFormet from '../ContactPage/ButtonFormet';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faUserPen } from '@fortawesome/free-solid-svg-icons';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { getAuth, signOut } from 'firebase/auth';
+import { getAuth } from 'firebase/auth';
 import app from '../Firebase/Firebase.init';
 
 const auth = getAuth(app);
@@ -104,7 +104,8 @@ const Nav = () => {
                                 </Link>
                             </div>
                             {user?.uid ?
-                                <button onClick={() => signOut(auth)} className='text-white'>Signout</button> :
+
+                                <Link to='/adminpage'><FontAwesomeIcon className='text-green-500 ms-4 ' icon={faUserPen} size='xl' /> </Link> :
                                 <div>
                                     <Link to='/signin' >
                                         <FontAwesomeIcon className='text-white ms-4 hover:text-blue-500 duration-300' icon={faUser} size='xl' />
