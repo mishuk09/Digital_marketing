@@ -1,148 +1,98 @@
-// import { useState } from "react";
-// import { useForm } from "react-hook-form";
-// import ReactQuill from 'react-quill';
-// import 'react-quill/dist/quill.snow.css';
-
-// const AddBlogs = () => {
-//     const { register, handleSubmit } = useForm();
-//     const [value, setValue] = useState('');
-//     const [formData, setFormData] = useState({
-//         name: '',
-//         date: '',
-//         file: null
-//     });
-
-//     const modules = {
-//         toolbar: [
-//             [{ 'header': [1, 2, false] }],
-//             ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-//             [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }],
-//             ['link', 'image'],
-//             ['clean']
-//         ],
-//     };
-//     const formats = [
-//         'header',
-//         'bold', 'italic', 'underline', 'strike', 'blockquote',
-//         'list', 'bullet', 'indent',
-//         'link', 'image'
-//     ];
-
-//     const onSubmit = (data) => {
-//         const url = `http://localhost:5000/blogs`;
-
-//         fetch(url, {
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/json',
-//             },
-//             body: JSON.stringify(formData),
-//         })
-//             .then((res) => res.json())
-//             .then((result) => {
-//                 console.log(result);
-//             });
-//     };
-
-//     const handleEditorChange = (val) => {
-//         setValue(val);
-//         setFormData({
-//             ...formData,
-
-//             name: val
-//         });
-//     };
-
-//     return (
-//         <form onSubmit={handleSubmit(onSubmit)}>
-//             <input {...register("name")} className="text-white" type="text" placeholder="Title" />
-
-//             <ReactQuill theme="snow" formats={formats} modules={modules} value={value} onChange={handleEditorChange} />
-
-//             <input className="text-white" type="date" {...register("date", { required: true })} />
-//             <input className="text-white" type="file" {...register("file", { required: true })} />
-//             <input type="submit" value='Submit' />
-//         </form>
-//     );
-// };
-
-// export default AddBlogs;
-
-
-
-
-
-
-import ReactQuill from "react-quill";
-import 'react-quill/dist/quill.snow.css';
 import { useState } from "react";
-import { Navigate } from "react-router-dom";
-import Editor from "./Editor";
+import { useForm } from "react-hook-form";
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+import * as React from 'react';
+import { styled } from '@mui/material/styles';
+import Dialog from '@mui/material/Dialog';
+import DialogTitle from '@mui/material/DialogTitle';
+import thumsup from './img/thumsup.png';
 
+
+const BootstrapDialog = styled(Dialog)(({ theme }) => ({
+    '& .MuiDialogContent-root': {
+        padding: theme.spacing(2),
+    },
+    '& .MuiDialogActions-root': {
+        padding: theme.spacing(1),
+    },
+}));
 
 const AddBlogs = () => {
-    const [title, setTitle] = useState('');
-    const [summary, setSummary] = useState('');
-    const [content, setContent] = useState('');
-    const [files, setFiles] = useState('');
-    const [redirect, setRedirect] = useState(false);
-    const [formData, setFormData] = useState({
-        name: '',
-        date: '',
-        file: null
-    });
-    async function createNewPost(ev) {
-        const data = new FormData();
-        data.set('title', title);
-        data.set('summary', summary);
-        data.set('content', content);
-        data.set('file', files[0]);
-        ev.preventDefault();
-        // const response = await fetch('http://localhost:5000/blogs', {
-        //     method: 'POST',
-        //     body: data,
-        //     credentials: 'include',
-        // });
-        // if (response.ok) {
-        //     setRedirect(true);
-        // }
+    const { register, handleSubmit, reset } = useForm();
+    const [value, setValue] = useState('');
+    const [success, setSuccess] = useState('');
 
+    const modules = {
+        toolbar: [
+            [{ 'header': [1, 2, false] }],
+            ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+            [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }],
+            ['link', 'image'],
+            ['clean']
+        ],
+    };
+    const formats = [
+        'header',
+        'bold', 'italic', 'underline', 'strike', 'blockquote',
+        'list', 'bullet', 'indent',
+        'link', 'image'
+    ];
 
+    const onSubmit = (data) => {
         const url = `http://localhost:5000/blogs`;
-
+        data.description = value;
         fetch(url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(formData),
+            body: JSON.stringify(data),
         })
             .then((res) => res.json())
             .then((result) => {
-                console.log(result);
+
+                setSuccess("Blog add Successfully..")
+                setValue('');
+                reset();
+
             });
     };
-    if (redirect) {
-        return <Navigate to={'/'} />
-    }
 
-
+    const handleCloseDialog = () => {
+        setSuccess(false);
+    };
 
     return (
-        <form onSubmit={createNewPost}>
-            <input type="title"
-                placeholder={'Title'}
-                value={title}
-                onChange={ev => setTitle(ev.target.value)} />
-            <input type="summary"
-                placeholder={'Summary'}
-                value={summary}
-                onChange={ev => setSummary(ev.target.value)} />
-            <input type="file"
-                onChange={ev => setFiles(ev.target.files)} />
-            <Editor value={content} onChange={setContent} />
-            <button style={{ marginTop: '5px' }}>Create post</button>
+        <form className="container" onSubmit={handleSubmit(onSubmit)}>
+            <h1 className=" text-center font-verdina text-5xl font-bold mt-10">Add Blog</h1>
+
+            {
+                success && (
+                    <BootstrapDialog onClose={handleCloseDialog} aria-labelledby="customized-dialog-title" open={success}>
+                        <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
+                            <img className="w-[200px] text-center items-center justify-center" src={thumsup} alt="" />
+                            Blog Added Successfully...
+                        </DialogTitle>
+
+
+                    </BootstrapDialog>
+                )
+            }
+            <input {...register("name")} className="text-black mt-10 mb-4 w-full bg-slate-100 border" type="text" placeholder="Blog Title" />
+
+            <ReactQuill theme="snow" formats={formats} modules={modules} value={value} onChange={setValue} style={{ height: '300px' }} />
+            <input placeholder="Photo URL" className="text-black border w-full bg-slate-100 mt-14" type="text" {...register("photourl", { required: true })} />
+            <input className="text-black border w-full bg-slate-100" type="date" {...register("date", { required: true })} />
+
+
+
+            <input type="submit" className="text-white font-bold border w-full bg-blue-500 mb-20" value='Submit' />
         </form>
     );
 };
+
 export default AddBlogs;
+
+
+
