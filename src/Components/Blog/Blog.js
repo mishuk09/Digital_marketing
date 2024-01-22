@@ -5,7 +5,6 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import ai from './img/ai.jpeg';
 import banner from './img/banner.png';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
@@ -53,28 +52,50 @@ TabPanel.propTypes = {
     value: PropTypes.number.isRequired,
 };
 
+
+export function fetchBlogData(currentPage, setBlog, setPageCount) {
+    // Fetch blog data based on the current page
+    fetch(`https://plexus-backend-bbjj.onrender.com/blogs?page=${currentPage}&size=10`)
+        .then(res => res.json())
+        .then(data => setBlog(data));
+
+    // Fetch blog count for pagination
+    fetch('https://plexus-backend-bbjj.onrender.com/blogcount')
+        .then(res => res.json())
+        .then(data => {
+            const count = data.count;
+            const page = Math.ceil(count / 10);
+            setPageCount(page);
+        });
+}
+
 export default function Blog() {
     const [currentPage, setCurrentPage] = useState(1);
     const [pageCount, setPageCount] = useState(0);
     const [blog, setBlog] = useState([]);
 
-    useEffect(() => {
-        // Fetch blog data based on the current page
-        fetch(`http://localhost:5000/blogs?page=${currentPage}&size=10`)
-            .then(res => res.json())
-            .then(data => setBlog(data));
-    }, [currentPage]);
 
     useEffect(() => {
-        // Fetch blog count for pagination
-        fetch('http://localhost:5000/blogcount')
-            .then(res => res.json())
-            .then(data => {
-                const count = data.count;
-                const page = Math.ceil(count / 10);
-                setPageCount(page);
-            });
-    }, []);
+        fetchBlogData(currentPage, setBlog, setPageCount);
+    }, [currentPage]);
+
+    // useEffect(() => {
+    //     // Fetch blog data based on the current page
+    //     fetch(`https://plexus-backend-bbjj.onrender.com/blogs?page=${currentPage}&size=10`)
+    //         .then(res => res.json())
+    //         .then(data => setBlog(data));
+    // }, [currentPage]);
+
+    // useEffect(() => {
+    //     // Fetch blog count for pagination
+    //     fetch('https://plexus-backend-bbjj.onrender.com/blogcount')
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             const count = data.count;
+    //             const page = Math.ceil(count / 10);
+    //             setPageCount(page);
+    //         });
+    // }, []);
 
     const navigate = useNavigate();
 
@@ -118,16 +139,22 @@ export default function Blog() {
 
                         {blog.map((unit) => (
                             <div key={unit._id} className='max-w-sm bg-white rounded mt-3 shadow hover:-translate-y-2 duration-300'>
-                                <img class='w-full rounded-t-md' src={ai} alt='Sunset in the mountains' />
+                                <img class='w-full rounded-t-md' src={unit.photourl} alt='Sunset in the mountains' />
                                 <div class='px-6 py-4'>
                                     <div class='font-bold text-xl mb-2'>{unit.name}</div>
-                                    {/* Modify the description paragraph in your component */}
                                     <p
                                         className='text-gray-700 font-nunito text-justify overflow-hidden text-base'
-                                        style={{ display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden', textOverflow: 'ellipsis' }}
-                                    >
-                                        {unit.description}
-                                    </p>
+                                        style={{
+                                            display: '-webkit-box',
+                                            WebkitLineClamp: 3,
+                                            WebkitBoxOrient: 'vertical',
+                                            overflow: 'hidden',
+                                            textOverflow: 'ellipsis'
+                                        }}
+                                        dangerouslySetInnerHTML={{ __html: unit.description }}
+                                    ></p>
+
+
                                 </div>
                                 <div class='px-6 flex justify-between pt-4 pb-2'>
                                     <div>

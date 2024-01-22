@@ -105,7 +105,7 @@ const Nav = () => {
                             </div>
                             {user?.uid ?
 
-                                <Link to='/adminpage'><FontAwesomeIcon className='text-green-500 ms-4 ' icon={faUserPen} size='xl' /> </Link> :
+                                <Link to='/adminpage'><FontAwesomeIcon className='text-blue-500 ms-4 ' icon={faUserPen} size='xl' /> </Link> :
                                 <div>
                                     <Link to='/signin' >
                                         <FontAwesomeIcon className='text-white ms-4 hover:text-blue-500 duration-300' icon={faUser} size='xl' />

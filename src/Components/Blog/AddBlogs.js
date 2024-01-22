@@ -40,7 +40,7 @@ const AddBlogs = () => {
     ];
 
     const onSubmit = (data) => {
-        const url = `http://localhost:5000/blogs`;
+        const url = `https://plexus-backend-bbjj.onrender.com/blogs`;
         data.description = value;
         fetch(url, {
             method: 'POST',

@@ -2,49 +2,26 @@ import React, { useEffect, useState } from 'react';
 import Headline from '../Headline';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
-// import webItems from '../Blog/webItems';
-import ai from '../Blog/img/ai.jpeg';
+import { fetchBlogData } from '../Blog/Blog';
+import { useNavigate } from 'react-router';
 
 const Article = () => {
-    const interviewRef = React.useRef(null);
 
+
+
+    const navigate = useNavigate();
+
+    //create a fetch data in BLOG and call it from there
     const [blog, setBlog] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/blogs')
-            .then(res => res.json())
-            .then(data => setBlog(data));
-    }, [])
-
-    const scroll = (scrollOffset) => {
-        if (interviewRef.current) {
-            const container = interviewRef.current;
-            const start = container.scrollLeft;
-
-            const startTime = performance.now();
-            const duration = 300; // Adjust the duration as needed
-
-            const animateScroll = (currentTime) => {
-                const elapsedTime = currentTime - startTime;
-                const scroll = easeInOutQuad(elapsedTime, start, scrollOffset, duration);
-                container.scrollLeft = scroll;
-
-                if (elapsedTime < duration) {
-                    requestAnimationFrame(animateScroll);
-                }
-            };
-
-            requestAnimationFrame(animateScroll);
-        }
-    };
-
-    const easeInOutQuad = (t, b, c, d) => {
-        t /= d / 2;
-        if (t < 1) return (c / 2) * t * t + b;
-        t--;
-        return (-c / 2) * (t * (t - 2) - 1) + b;
-    };
+        fetchBlogData(1, setBlog, () => { });
+    }, []);
 
 
+
+    const handleNavigatepage = id => {
+        navigate(`/blogsdetails/${id}`);
+    }
 
     return (
         <div id='article' className='bg-slate-100 pb-10'>
@@ -60,26 +37,39 @@ const Article = () => {
 
 
 
-                            <div className='px-5  pb-5   bg-white relative  '>
-                                <div className='grid grid-flow-col auto-cols-max gap-3 mt-4 overflow-hidden' ref={interviewRef}>
+                            <div className='px-2      bg-white relative  '>
+                                <div className='grid grid-flow-col auto-cols-max gap-3 mt-3 xs:overflow-x-auto  sm:justify-center pb-3 '  >
 
 
-                                    {blog.map((unit) => (
-                                        <div class="max-w-sm bg-white rounded mt-3 mb-3 shadow hover:-translate-y-2 duration-300">
-                                            <img class="w-full rounded-t-md" src={ai} alt="Sunset in the mountains" />
+                                    {blog.slice(0, 3).map((unit) => (
+
+  
+                                        <div class="max-w-sm bg-white rounded  shadow  xs:w-[80%] sm:w-[100%] duration-300 w-[100%] h-[100%]"  >
+                                            <div className='sm:h-[300px] xs:h-[200px]'>
+                                                <img class="w-full h-full rounded-t-md object-cover" src={unit.photourl} alt="Sunset in the mountains" />
+                                            </div>
                                             <div class="px-6 py-4">
                                                 <div class="font-bold text-xl mb-2"> {unit.name}</div>
-                                                <p class="text-gray-700 text-base">
-                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
-                                                </p>
+                                                <p
+                                                    className='text-gray-700 font-nunito text-justify overflow-hidden text-base'
+                                                    style={{
+                                                        display: '-webkit-box',
+                                                        WebkitLineClamp: 3,
+                                                        WebkitBoxOrient: 'vertical',
+                                                        overflow: 'hidden',
+                                                        textOverflow: 'ellipsis'
+                                                    }}
+                                                    dangerouslySetInnerHTML={{ __html: unit.description }}
+                                                ></p>
                                             </div>
-                                            <div class="px-6 flex     justify-between pt-4 pb-2">
-                                                <div> <span class="inline-block bg-gray-200 rounded-full px-3 py-1 lg:text-sm xs:text-[11px] text-sm font-semibold text-gray-700 mr-2 mb-2">12 December 2023</span>
-                                                </div>
-
+                                            <div class="px-6 flex justify-between pt-4 pb-2">
                                                 <div>
-                                                    <button class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm lg:text-sm xs:text-[11px] font-semibold text-gray-700 mr-2 mb-2"> Seemore
-                                                        <FontAwesomeIcon className='ms-1' icon={faArrowRight} /></button>
+                                                    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 lg:text-sm xs:text-[11px] text-sm font-semibold text-gray-700 mr-2 mb-2">{unit.date}</span>
+                                                </div>
+                                                <div>
+                                                    <button onClick={() => handleNavigatepage(unit._id)} class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm lg:text-sm xs:text-[11px] font-semibold text-gray-700 mr-2 mb-2"> Seemore
+                                                        <FontAwesomeIcon className='ms-1' icon={faArrowRight} />
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
@@ -87,8 +77,8 @@ const Article = () => {
                                 </div>
 
 
-                                <button
-                                    className='absolute top-1/2 left-2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full'
+                                {/* <button
+                                    className='absolute  top-1/2 left-2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full'
                                     onClick={() => scroll(-500)}
                                 >
                                     {'<'}
@@ -98,7 +88,7 @@ const Article = () => {
                                     onClick={() => scroll(500)}
                                 >
                                     {'>'}
-                                </button>
+                                </button> */}
                             </div>
                         </div>
                     </div>
