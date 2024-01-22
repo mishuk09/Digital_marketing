@@ -9,12 +9,19 @@ const BlogDetails = () => {
 
     const [blog, setBlog] = useState({});
     const [getblog, setGetblog] = useState([]);
+    // useEffect(() => {
+    //     const url = `https://plexus-backend-bbjj.onrender.com/blogs/${blogid}`;
+    //     fetch(url)
+    //         .then(res => res.json())
+    //         .then(data => setBlog(data));
+    // }, []);
     useEffect(() => {
         const url = `https://plexus-backend-bbjj.onrender.com/blogs/${blogid}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setBlog(data));
-    }, []);
+    }, [blogid]);
+
     useEffect(() => {
         const url = 'https://plexus-backend-bbjj.onrender.com/blogs';
         fetch(url)
@@ -33,15 +40,16 @@ const BlogDetails = () => {
                     <div className='w-[20%] flex flex-col xs:hidden md:block md:w-[40%] lg:w-[30%] border bg-white rounded h-auto p-2'>
                         {
                             getblog.map((unite) => (
-                                <Link to={`/blogsdetails/${unite._id}`} className='w-[100%] flex h-32 hover:shadow border-b' onClick={(e) => { e.preventDefault(); navigateToServiceDetail(unite._id); }}>
+                                // <Link key={unite._id} to={`/blogsdetails/${unite._id}`} className='w-[100%] flex h-32 hover:shadow border-b' onClick={(e) => { e.preventDefault(); navigateToServiceDetail(unite._id); }}>
+                                <Link key={unite._id} to={`/blogsdetails/${unite._id}`} className='w-[100%] flex h-32 hover:shadow border-b' onClick={(e) => { e.preventDefault(); navigateToServiceDetail(unite._id); }}>
                                     <div className='w-[40%] h-32 flex items-center'>
                                         <img className='w-full rounded' src={unite.photourl} alt="" />
                                     </div>
-
                                     <div className='ps-2 w-[60%] font-bold flex items-center'>
                                         {unite.name}
                                     </div>
                                 </Link>
+
                             ))
                         }
 

@@ -2,6 +2,7 @@ import React from 'react';
 import './Home.css'
 import Sl from './Sl';
 import { Link } from 'react-router-dom';
+ 
 
 const Home = () => {
     const clipPathStyle = {
@@ -21,6 +22,8 @@ const Home = () => {
             <div className='container flex justify-center relative items-center  xs:top-[530px]   lg:top-[250px] sm:top-[360px]  md:top-[270px]  top-[250px]'>
                 <div className='bg-slate-950 xs:w-[100%]  w-full h-[400px] text-center items-center flex  justify-center rounded'>
                     <Sl />
+                    
+
                 </div>
             </div>
         </div>
@@ -28,3 +31,5 @@ const Home = () => {
 };
 
 export default Home;
+
+

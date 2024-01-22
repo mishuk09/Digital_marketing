@@ -1,10 +1,11 @@
-import { faChevronLeft, faChevronRight, faSquareCheck } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { faChevronLeft, faChevronRight, faSquareCheck } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ButtonFormet from '../ContactPage/ButtonFormet';
 import web from './img/web.png';
 import seo from './img/seo.png';
+import social from './img/social.png';
 import graphic from './img/graphic.png';
 
 const Sl = () => {
@@ -22,10 +23,11 @@ const Sl = () => {
             setIsHovered(false);
             const id = setInterval(() => {
                 setPosition((prevPosition) => (prevPosition + 1) % items.length);
-            }, 4000);
+            }, 5000);
             setIntervalId(id);
         }
     };
+
     const handleForwardClick = () => {
         clearInterval(intervalId);
         setPosition((prevPosition) => (prevPosition + 1) % items.length);
@@ -119,7 +121,7 @@ const Sl = () => {
                         </div>
                     </div>
                     <div className='w-[50%] xs:w-[100%] sm:w-[50%] lg:w-[50%] flex items-center text-center justify-center'>
-                        <img className=' lg:w-[400px]  h-full' src={web} alt='' />
+                        <img className=' lg:w-[400px]  h-full' src={social} alt='' />
                     </div>
                 </div>
             ),
@@ -168,7 +170,7 @@ const Sl = () => {
 
         setIntervalId(id);
 
-        return () => clearInterval(intervalId);
+        return () => clearInterval(id); // Use the correct intervalId in the cleanup function
     }, [items.length]);
 
     useEffect(() => {
@@ -189,8 +191,14 @@ const Sl = () => {
         }, 3000);
         setIntervalId(id);
     };
+
     return (
-        <div id="carousel-example" className='w-full'>
+        <div
+            id="carousel-example"
+            className="w-full"
+            onMouseEnter={() => handleHover(true)}
+            onMouseLeave={() => handleHover(false)}
+        >
             <div className="carousel-items w-full">
                 {items.map((item, index) => (
                     <div
@@ -211,17 +219,23 @@ const Sl = () => {
                 ))}
             </div>
 
-            <div className='flex justify-center absolute inset-x-0 bottom-1'>
-                <button className='text-white relative rounded-full w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16' onClick={handleBackwardClick}>
+            <div className="flex md:block xs:hidden justify-center absolute inset-x-0 bottom-1">
+                {/* Conditionally render buttons for small and xs screens */}
+                <button
+                    className="text-white relative rounded-full w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16"
+                    onClick={handleBackwardClick}
+                >
                     <FontAwesomeIcon icon={faChevronLeft} />
                 </button>
-                <button className='text-white relative rounded-full w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 ml-2' onClick={handleForwardClick}>
+                <button
+                    className="text-white relative rounded-full w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 ml-2"
+                    onClick={handleForwardClick}
+                >
                     <FontAwesomeIcon icon={faChevronRight} />
                 </button>
             </div>
         </div>
     );
-
 };
 
 export default Sl;
