@@ -64,7 +64,7 @@ export function fetchBlogData(currentPage, setBlog, setPageCount) {
         .then(res => res.json())
         .then(data => {
             const count = data.count;
-            const page = Math.ceil(count / 10);
+            const page = Math.ceil(count / 9);
             setPageCount(page);
         });
 }
@@ -108,7 +108,7 @@ export default function Blog() {
     };
 
     return (
-        <div>
+        <div className='bg-blue-50'>
             <div style={clipPathStyle} className='bg-slate-200 relative w-full h-[400px] flex flex-col'>
                 <div style={clipPathStyletwo} className='pt-10 w-full h-[400px] flex flex-col text-center'>
                     <h1 className='text-slate-100 mt-10 max-auto text-5xl font-sans font-bold'>
@@ -130,7 +130,7 @@ export default function Blog() {
 
             <div className='container flex justify-center items-center xs:top-[530px] lg:top-[270px] sm:top-[360px] md:top-[270px] top-[250px]'>
                 <div className='bg-blue-50 xs:w-[100%] p-3 mt-3 w-full h-auto rounded'>
-                    <Headline to='/blog' parent='Article' child='Blog' short='News' isPshow={false}>
+                    <Headline to='/blog' child='Blogs' isPshow={false}>
                         {' '}
                     </Headline>
 
@@ -138,10 +138,10 @@ export default function Blog() {
 
 
                         {blog.map((unit) => (
-                            <div key={unit._id} className='max-w-sm bg-white rounded mt-3 shadow hover:-translate-y-2 duration-300'>
-                                <img class='w-full rounded-t-md' src={unit.photourl} alt='Sunset in the mountains' />
-                                <div class='px-6 py-4'>
-                                    <div class='font-bold text-xl mb-2'>{unit.name}</div>
+                            <div onClick={() => navigateToServiceDetail(unit._id)} key={unit._id} className='max-w-sm cursor-pointer bg-white rounded mt-3 shadow hover:-translate-y-2 duration-300' style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+                                <img className='w-full rounded-t-md' src={unit.photourl} alt='Sunset in the mountains' />
+                                <div className='px-6 py-4' style={{ flex: 1 }}>
+                                    <div className='font-bold text-xl mb-2'>{unit.name}</div>
                                     <p
                                         className='text-gray-700 font-nunito text-justify overflow-hidden text-base'
                                         style={{
@@ -153,21 +153,16 @@ export default function Blog() {
                                         }}
                                         dangerouslySetInnerHTML={{ __html: unit.description }}
                                     ></p>
-
-
                                 </div>
-                                <div class='px-6 flex justify-between pt-4 pb-2'>
+                                <div className='px-6 flex justify-between pt-4 pb-2'>
                                     <div>
                                         {' '}
-                                        <span class='inline-block bg-gray-200 rounded-full px-3 py-1 lg:text-sm xs:text-[11px] text-sm font-semibold text-gray-700 mr-2 mb-2'>
+                                        <span className='inline-block bg-gray-200 rounded-full px-3 py-1 lg:text-sm xs:text-[11px] text-sm font-semibold text-gray-700 mr-2 mb-2'>
                                             {' '}
                                             {unit.date}
                                         </span>
                                     </div>
-
                                     <div>
-
-
                                         <button
                                             onClick={() => navigateToServiceDetail(unit._id)}
                                             className='inline-block bg-gray-200 rounded-full px-3 py-1 text-sm lg:text-sm xs:text-[11px] font-semibold text-gray-700 mr-2 mb-2'
@@ -178,6 +173,8 @@ export default function Blog() {
                                 </div>
                             </div>
                         ))}
+
+
                     </div>
 
                     <div className='flex items-center text-center justify-center mt-14 mb-4'>

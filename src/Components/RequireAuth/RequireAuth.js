@@ -11,7 +11,7 @@ const RequireAuth = ({ children }) => {
     const location = useLocation();
 
     if (loading) {
-        // Handle the loading state (optional)
+
         return <div>Loading...</div>;
     }
 

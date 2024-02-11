@@ -1,7 +1,7 @@
 import React from 'react';
 import mainlogo from './img/mainlogo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faGithub, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faGithub, faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faBriefcase, faCode, faEnvelope, faGears, faHeadset, faLayerGroup, faMap, faPeopleGroup } from '@fortawesome/free-solid-svg-icons';
 
 const Footer = () => {
@@ -45,15 +45,13 @@ const Footer = () => {
                         <p className='ps-10 xs:ps-2  delay-75 font-nunito xs:text-sm sm:text-1xl mt-2'><FontAwesomeIcon className='me-2' icon={faMap} />Rajkot,Gujarat,India.</p>
                         <p className='ps-10 xs:ps-2  delay-75 font-nunito xs:text-sm sm:text-1xl mt-2'><FontAwesomeIcon className='me-2' icon={faEnvelope} />services@plexus.org.in</p>
                         <p className='ps-10 xs:ps-2   font-nunito text-sm mt-3'>
-                            <FontAwesomeIcon className='icon-main me-3 hover:text-blue-500 delay-75' icon={faGithub} size="2x" />
-                            <FontAwesomeIcon className='icon-main me-3 hover:text-blue-500 delay-75' icon={faLinkedin} size="2x" />
-                            <FontAwesomeIcon className='icon-main me-3 hover:text-blue-500 delay-75' icon={faFacebook} size="2x" />
-                            <FontAwesomeIcon className='icon-main me-3 hover:text-blue-500 delay-75' icon={faTwitter} size="2x" /></p>
+                            <a href="https://www.facebook.com/profile.php?id=61555155673334" target='blank'><FontAwesomeIcon className='icon-main me-3 hover:text-blue-500 delay-75' icon={faFacebook} size="2x" /></a>
+                            <a href="https://www.instagram.com/plexus_dgm/" target='blank'>  <FontAwesomeIcon className='icon-main me-3 hover:text-blue-500 delay-75' icon={faInstagram} size="2x" /></a></p>
 
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

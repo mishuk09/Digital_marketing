@@ -18,6 +18,7 @@ import Adminpage from './Components/Login/Adminpage/Adminpage';
 import RequireAuth from './Components/RequireAuth/RequireAuth';
 import AddBlogs from './Components/Blog/AddBlogs';
 import ManageBlog from './Components/Login/Adminpage/ManageBlog';
+import Social from './Components/Service/Allservices/Social';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         <Route path='/' element={<ChildDiv />} />
         <Route path='/web' element={<Web />} />
         <Route path='/seo' element={<Seo />} />
+        <Route path='/social' element={<Social />} />
         <Route path='/graphic' element={<Graphic />} />
         <Route path='/signin' element={<Login />} />
         <Route path='/signupsignup' element={<Signup />} />

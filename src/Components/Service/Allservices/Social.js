@@ -2,8 +2,8 @@ import React from 'react';
 
 const Social = () => {
     return (
-        <div>
-
+        <div className='container h-[100vh]'>
+            <h1 className='font-nunito text-5xl text-center mt-10'> Updating...</h1>
         </div>
     );
 };
